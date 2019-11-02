@@ -22,8 +22,8 @@ public class EmancipatorShoot
 
 	void Update()
 	{
-		if( Input.GetAxis( "Attack" ) > 0.0f &&
-			refire.Update( Time.deltaTime ) )
+		if( refire.Update( Time.deltaTime ) &&
+			Input.GetAxis( "Attack" ) > 0.0f )
 		{
 			refire.Reset();
 
