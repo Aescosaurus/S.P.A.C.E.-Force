@@ -41,9 +41,9 @@ public class EmancipatorShoot
 			bullBody.AddForce( diff * bulletSpeed,
 				ForceMode2D.Impulse );
 
-			// TODO: Rotate sprite in direction of shot.
+			transform.rotation = Quaternion.Euler( 0.0f,0.0f,
+				Mathf.Atan2( diff.y,diff.x ) * Mathf.Rad2Deg - 90.0f );
 		}
-
 
 		// TODO: Right-click to burst fire (longer cooldown).
 	}

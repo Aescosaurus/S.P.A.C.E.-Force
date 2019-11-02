@@ -151,6 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pushForce: 1
+  bulletSpeed: 15
 --- !u!50 &510340258
 Rigidbody2D:
   serializedVersion: 4
