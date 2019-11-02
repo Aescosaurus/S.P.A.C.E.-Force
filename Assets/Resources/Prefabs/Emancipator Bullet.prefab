@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5068003126884681791}
   - component: {fileID: 5068003126884681788}
   - component: {fileID: 5728794612736535577}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Emancipator Bullet
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5068003128325709637}
   - component: {fileID: 5068003128325709658}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
