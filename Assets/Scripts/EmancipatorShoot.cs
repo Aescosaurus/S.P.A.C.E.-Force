@@ -23,6 +23,10 @@ public class EmancipatorShoot
 		Assert.IsNotNull( gun1 );
 		gun2 = transform.Find( "Gun2" );
 		Assert.IsNotNull( gun2 );
+		shotgun = transform.Find( "Shotgun" );
+		Assert.IsNotNull( shotgun );
+
+		shotgunSpread *= Mathf.Deg2Rad;
 	}
 
 	void Update()
@@ -32,30 +36,61 @@ public class EmancipatorShoot
 		{
 			refire.Reset();
 
-			Vector2 mousePos = Camera.main.ScreenToWorldPoint(
-				Input.mousePosition );
-			Vector2 diff = mousePos - ( Vector2 )transform.position;
-			diff.Normalize();
-
-			transform.rotation = Quaternion.Euler( 0.0f,0.0f,
-				Mathf.Atan2( diff.y,diff.x ) * Mathf.Rad2Deg - 90.0f );
+			Vector2 diff = RotateGetDiff();
 
 			body.AddForce( -diff * pushForce,
 				ForceMode2D.Impulse );
 
 			if( ++curGun > 1 ) curGun = 0;
 
-			var bull = Instantiate( bulletPrefab,
-				curGun == 0 ?
-				gun1.transform.position
-				: gun2.transform.position,
-				Quaternion.identity );
-			var bullBody = bull.GetComponent<Rigidbody2D>();
-			bullBody.AddForce( diff * bulletSpeed,
-				ForceMode2D.Impulse );
+			FireBullet( curGun == 0
+				? gun1.position
+				: gun2.position,
+				diff );
 		}
 
-		// TODO: Right-click to burst fire (longer cooldown).
+		if( burstRefire.Update( Time.deltaTime ) &&
+			Input.GetAxis( "Burst" ) > 0.0f )
+		{
+			burstRefire.Reset();
+
+			Vector2 diff = RotateGetDiff();
+
+			body.AddForce( -diff * shotgunPushForce,
+				ForceMode2D.Impulse );
+
+			var angle = Mathf.Atan2( diff.y,diff.x );
+
+			FireBullet( shotgun.position,diff );
+			FireBullet( shotgun.position,new Vector2(
+				Mathf.Cos( angle - shotgunSpread ),
+				Mathf.Sin( angle - shotgunSpread ) ) );
+			FireBullet( shotgun.position,new Vector2(
+				Mathf.Cos( angle + shotgunSpread ),
+				Mathf.Sin( angle + shotgunSpread ) ) );
+		}
+	}
+
+	Vector2 RotateGetDiff()
+	{
+		Vector2 mousePos = Camera.main.ScreenToWorldPoint(
+			Input.mousePosition );
+		Vector2 diff = mousePos - ( Vector2 )transform.position;
+		diff.Normalize();
+
+		transform.rotation = Quaternion.Euler( 0.0f,0.0f,
+			Mathf.Atan2( diff.y,diff.x ) * Mathf.Rad2Deg - 90.0f );
+
+		return( diff );
+	}
+
+	void FireBullet( Vector2 pos,Vector2 moveDir )
+	{
+		var bull = Instantiate( bulletPrefab,
+			pos,Quaternion.identity );
+		var bullBody = bull.GetComponent<Rigidbody2D>();
+		bullBody.AddForce( moveDir * bulletSpeed,
+			ForceMode2D.Impulse );
 	}
 
 	Rigidbody2D body;
@@ -63,10 +98,14 @@ public class EmancipatorShoot
 	GameObject bulletPrefab;
 	Transform gun1;
 	Transform gun2;
+	Transform shotgun;
 
 	int curGun = 0;
 
 	[SerializeField] float pushForce = 0.0f;
-	[SerializeField] float bulletSpeed = 5.0f;
+	[SerializeField] float shotgunPushForce = 0.0f;
+	[SerializeField] float bulletSpeed = 0.0f;
+	[SerializeField] float shotgunSpread = 0.0f;
 	[SerializeField] Timer refire = new Timer( 0.2f );
+	[SerializeField] Timer burstRefire = new Timer( 0.5f );
 }
