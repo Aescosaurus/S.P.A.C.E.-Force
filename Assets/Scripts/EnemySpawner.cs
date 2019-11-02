@@ -62,7 +62,8 @@ public class EnemySpawner : MonoBehaviour
 
     void SpawnEnemy()
     {
-        Instantiate(spaceFox,SpawnLocation,Quaternion.identity);
+        var enemy = Instantiate(spaceFox,SpawnLocation,Quaternion.identity);
+		enemy.transform.SetParent( transform );
     }
 
     IEnumerator SpawnCountDown()

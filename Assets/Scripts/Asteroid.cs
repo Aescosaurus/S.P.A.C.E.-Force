@@ -6,12 +6,17 @@ public class Asteroid
 	:
 	MonoBehaviour
 {
-	void OnCollisionEnter2D( Collision2D other )
+	void Update()
 	{
-		// print( other.gameObject.tag );
-		if( other.gameObject.tag == "Asteroid" )
+		if( asteroidSpawner == null )
 		{
-			Destroy( gameObject );
+			asteroidSpawner = GameObject.Find(
+				"Asteroid Spawner" );
 		}
+		transform.SetParent( asteroidSpawner.transform );
+
+		Destroy( GetComponent<Asteroid>() );
 	}
+
+	static GameObject asteroidSpawner = null;
 }

@@ -30,8 +30,8 @@ public class StarSpawner
 		var spr = starSprites[Random.Range( 0,
 			starSprites.Length )];
 
-		var star = Instantiate( starPrefab,
-			loc,Quaternion.identity );
+		var star = Instantiate( starPrefab,transform );
+		star.transform.position = loc;
 		star.GetComponent<SpriteRenderer>().sprite = spr;
 	}
 
