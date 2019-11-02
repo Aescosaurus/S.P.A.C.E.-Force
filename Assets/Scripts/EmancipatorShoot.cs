@@ -14,6 +14,10 @@ public class EmancipatorShoot
 
 		cam = Camera.main;
 		Assert.IsNotNull( cam );
+
+		bulletPrefab = Resources.Load<GameObject>(
+			"Prefabs/Emancipator Bullet" );
+		Assert.IsNotNull( bulletPrefab );
 	}
 
 	void Update()
@@ -26,13 +30,18 @@ public class EmancipatorShoot
 			body.AddForce( -diff.normalized * pushForce,
 				ForceMode2D.Impulse );
 
-			// TODO: Spawn bullet.
+			var bull = Instantiate( bulletPrefab,
+				transform.position,Quaternion.identity );
+			var bullBody = bull.GetComponent<Rigidbody2D>();
+			bullBody.AddForce( diff * bulletSpeed,
+				ForceMode2D.Impulse );
 		}
 	}
 
 	Rigidbody2D body;
 	Camera cam;
+	GameObject bulletPrefab;
 
-	[SerializeField]
-	float pushForce = 0.0f;
+	[SerializeField] float pushForce = 0.0f;
+	[SerializeField] float bulletSpeed = 5.0f;
 }
