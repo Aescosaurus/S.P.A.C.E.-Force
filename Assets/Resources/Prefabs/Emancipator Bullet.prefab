@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5068003126884681791}
   - component: {fileID: 5068003126884681788}
   - component: {fileID: 5728794612736535577}
+  - component: {fileID: 3960428280908842217}
   m_Layer: 8
   m_Name: Emancipator Bullet
   m_TagString: Bullet
@@ -80,6 +81,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.25109673, y: 0.25109673}
   m_EdgeRadius: 0
+--- !u!114 &3960428280908842217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5068003126884681790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fffd6451ab344a941a225c05a731c797, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeedMin: 800
+  rotationSpeedMax: 1200
 --- !u!1 &5068003128325709636
 GameObject:
   m_ObjectHideFlags: 0

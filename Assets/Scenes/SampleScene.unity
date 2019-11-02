@@ -130,8 +130,8 @@ GameObject:
   m_Component:
   - component: {fileID: 510340259}
   - component: {fileID: 510340258}
-  - component: {fileID: 510340257}
   - component: {fileID: 510340260}
+  - component: {fileID: 510340257}
   m_Layer: 9
   m_Name: Emancipator
   m_TagString: Player
@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pushForce: 1
-  bulletSpeed: 15
+  bulletSpeed: 18.1
 --- !u!50 &510340258
 Rigidbody2D:
   serializedVersion: 4
