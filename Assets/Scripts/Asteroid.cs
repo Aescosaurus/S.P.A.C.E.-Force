@@ -8,7 +8,7 @@ public class Asteroid
 {
 	void OnCollisionEnter2D( Collision2D other )
 	{
-		print( other.gameObject.tag );
+		// print( other.gameObject.tag );
 		if( other.gameObject.tag == "Asteroid" )
 		{
 			Destroy( gameObject );
