@@ -22,7 +22,15 @@ public class KittenSpawner
 
 			if( Random.Range( 0.0f,100.0f ) < kittenSpawnRate )
 			{
-				// TODO: Create kitten.
+				var rand = new Vector2( Random.Range( -1.0f,1.0f ),
+					Random.Range( -1.0f,1.0f ) );
+				if( rand.x == 0.0f ) rand.x = 1.0f;
+				if( rand.y == 0.0f ) rand.y = 1.0f;
+				var loc = rand.normalized * spawnRange;
+
+				var kitten = Instantiate( kittenPrefab,
+					transform );
+				kitten.transform.position = loc;
 			}
 		}
 	}
@@ -32,6 +40,7 @@ public class KittenSpawner
 	[Tooltip( "Chance of spawning a kitten every second." )]
 	[Range( 0.0f,100.0f )]
 	[SerializeField] float kittenSpawnRate = 0.0f;
+	[SerializeField] float spawnRange = 0.0f;
 
 	Timer kittenSpawnTimer = new Timer( 1.0f );
 }
