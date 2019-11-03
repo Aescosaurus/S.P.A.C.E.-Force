@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Bullet
   - Asteroid
+  - SpaceFox
+  - SpaceKitten
   layers:
   - Default
   - TransparentFX
@@ -18,7 +20,7 @@ TagManager:
   - EmancipatorBullet
   - Emancipator
   - SpaceFox
-  - 
+  - Kitten
   - 
   - 
   - 
