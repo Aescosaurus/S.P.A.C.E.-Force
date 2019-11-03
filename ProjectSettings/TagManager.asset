@@ -7,6 +7,7 @@ TagManager:
   - Bullet
   - Asteroid
   - SpaceFox
+  - SpaceKitten
   layers:
   - Default
   - TransparentFX

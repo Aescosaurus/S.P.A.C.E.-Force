@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8540323863428215812}
   m_Layer: 11
   m_Name: Kitten
-  m_TagString: Untagged
+  m_TagString: SpaceKitten
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
