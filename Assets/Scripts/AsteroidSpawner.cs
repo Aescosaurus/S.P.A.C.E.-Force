@@ -56,7 +56,7 @@ public class AsteroidSpawner
 
 	GameObject asteroidPrefab;
 
-	[SerializeField] float minBoundsSpawnRange = 0.0f;
+	[SerializeField] public float minBoundsSpawnRange = 0.0f;
 	[SerializeField] float maxBoundsSpawnRange = 0.0f;
 	[SerializeField] int nBorderAsteroids = 0;
 	[Header( "Sprites" )]

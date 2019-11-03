@@ -846,7 +846,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 25
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1205,8 +1205,9 @@ MonoBehaviour:
   player: {fileID: 510340256}
   spaceFox: {fileID: 1042879270079250614, guid: c6dca51e5aaf04f15be8195a53777c91,
     type: 3}
-  SpawnTime: 3
+  SpawnTime: 1
   SpawnDistance: 3
+  maxSpawnRate: 3
 --- !u!4 &1262884375
 Transform:
   m_ObjectHideFlags: 0

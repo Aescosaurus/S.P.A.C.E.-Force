@@ -20,18 +20,26 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     float SpawnDistance = 3f;
 
+    [Tooltip("Maximum Spawn Time (Enemies per Second)")]
+    [SerializeField]
+    int maxSpawnRate = 3;
+
     Vector2 TopRight, SpawnLocation;
-    float halfWidth, halfHeight, actualSpawnDistance;
+    float halfWidth, halfHeight, actualSpawnDistance, spawnRange;
     bool spawning;
+
+    AsteroidSpawner aSpawner;
 
     // Start is called before the first frame update
     void Start()
     {
+        aSpawner = FindObjectOfType<AsteroidSpawner>();
+        spawnRange = aSpawner.minBoundsSpawnRange;
         TopRight = new Vector2(1, 1);
         Vector2 SizeVector = Camera.main.ViewportToWorldPoint(TopRight);
-        halfHeight = SizeVector.y * 0.9f;
-        halfWidth = SizeVector.x * 0.9f;
-     
+        halfHeight = spawnRange * 0.75f;
+        halfWidth = spawnRange * 0.75f;
+
         // Make sure the SpawnDistance translates between different screen sizes
         actualSpawnDistance = (Vector2.Distance(TopRight * SizeVector, Vector2.zero) / SizeVector.magnitude * SpawnDistance);
     }
@@ -47,7 +55,15 @@ public class EnemySpawner : MonoBehaviour
                 GenerateSpawnPoint();
             }
             StartCoroutine(SpawnCountDown());
-            SpawnTime *= 0.9f;
+            Debug.Log(SpawnTime);
+            if (SpawnTime * 0.9f > (1.0f / maxSpawnRate))
+            {
+                SpawnTime *= 0.9f;
+            }
+            else
+            {
+                SpawnTime = (1.0f / maxSpawnRate);
+            }
             spawning = true;
         }
     }
