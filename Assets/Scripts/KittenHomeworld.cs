@@ -16,7 +16,8 @@ public class KittenHomeworld
 		if( coll.tag == "SpaceKitten" )
 		{
 			Destroy( coll.gameObject );
-			// TODO: Give us points!
+			LevelHandler.SaveKitty();
+			// TODO: Push back all enemies.
 		}
 	}
 

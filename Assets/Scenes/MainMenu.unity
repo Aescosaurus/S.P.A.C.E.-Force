@@ -234,7 +234,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneOrder:
   - sceneName: Level 1
-    kittiesToWin: 5
+    kittiesToWin: 3
 --- !u!4 &1579586669
 Transform:
   m_ObjectHideFlags: 0
