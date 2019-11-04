@@ -712,9 +712,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pushForce: 1
-  shotgunPushForce: 3
   bulletSpeed: 18.1
-  shotgunSpread: 15.88
+  refire:
+    maxTime: 0.2
 --- !u!50 &510340258
 Rigidbody2D:
   serializedVersion: 4
@@ -1438,6 +1438,80 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1663916765}
   m_CullTransparentMesh: 0
+--- !u!1001 &1776828742
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7135008040032020852, guid: 103cbacd8c1beaa4ba6876f8aeeadc1d,
+        type: 3}
+      propertyPath: m_Name
+      value: Music Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7135008040032020855, guid: 103cbacd8c1beaa4ba6876f8aeeadc1d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7135008040032020855, guid: 103cbacd8c1beaa4ba6876f8aeeadc1d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7135008040032020855, guid: 103cbacd8c1beaa4ba6876f8aeeadc1d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7135008040032020855, guid: 103cbacd8c1beaa4ba6876f8aeeadc1d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7135008040032020855, guid: 103cbacd8c1beaa4ba6876f8aeeadc1d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7135008040032020855, guid: 103cbacd8c1beaa4ba6876f8aeeadc1d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7135008040032020855, guid: 103cbacd8c1beaa4ba6876f8aeeadc1d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7135008040032020855, guid: 103cbacd8c1beaa4ba6876f8aeeadc1d,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7135008040032020855, guid: 103cbacd8c1beaa4ba6876f8aeeadc1d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7135008040032020855, guid: 103cbacd8c1beaa4ba6876f8aeeadc1d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7135008040032020855, guid: 103cbacd8c1beaa4ba6876f8aeeadc1d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7135008040032020854, guid: 103cbacd8c1beaa4ba6876f8aeeadc1d,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 83328f872e40f9d4abce97339c38937e, type: 3}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 103cbacd8c1beaa4ba6876f8aeeadc1d, type: 3}
 --- !u!1 &1887338263
 GameObject:
   m_ObjectHideFlags: 0
@@ -1512,6 +1586,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 633e6f277c8883c44ae11b160435e135, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waveSpawn:
+    maxTime: 10
   maxSpawnRange: 19
   kittensPerWave: 1
   kittenPrefab: {fileID: 8540323863428215811, guid: 1b172408eddce044ca59c27d0f425541,
