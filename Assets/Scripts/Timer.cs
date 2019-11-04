@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class Timer
 {
 	public Timer( float time )
@@ -28,5 +29,5 @@ public class Timer
 	}
 
 	float curTime;
-	float maxTime;
+	[SerializeField] float maxTime;
 }

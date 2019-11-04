@@ -328,10 +328,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wanderSpeed: 10
-  bulletSpeed: 1
+  wanderDuration:
+    maxTime: 3
+  bulletSpeed: 9
+  chaseDuration:
+    maxTime: 2.5
+  chaseSpeed: 17
   missileVolleySize: 6
-  missileDeviation: 20
-  missileSpeed: 0.5
+  missileDeviation: 27.5
+  missileRefire:
+    maxTime: 0.12
+  missileSpeed: 5.5
 --- !u!1 &732507070
 GameObject:
   m_ObjectHideFlags: 0

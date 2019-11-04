@@ -51,8 +51,8 @@ public class FoxBoss1
 				else
 				{
 					Vector2 diff = target - ( Vector2 )transform.position;
-					body.AddForce( diff * wanderSpeed *
-						Time.deltaTime );
+					body.AddForce( diff.normalized *
+						wanderSpeed * Time.deltaTime );
 				}
 				break;
 			case State.GunAttack:
@@ -65,7 +65,7 @@ public class FoxBoss1
 						? gun1.position : gun2.position;
 					bullet.GetComponent<Rigidbody2D>()
 						.AddForce( ( player.transform.position -
-						bullet.transform.position ) *
+						bullet.transform.position ).normalized *
 						bulletSpeed,ForceMode2D.Impulse );
 
 					if( ++curShot > 1 )
@@ -78,14 +78,15 @@ public class FoxBoss1
 			case State.Chase:
 				if( chaseDuration.Update( Time.deltaTime ) )
 				{
+					chaseDuration.Reset();
 					action = State.MissileAttack;
 				}
 				else
 				{
 					Vector2 diff = player.transform.position -
 						transform.position;
-					body.AddForce( diff * wanderSpeed *
-						Time.deltaTime );
+					body.AddForce( diff.normalized *
+						chaseSpeed * Time.deltaTime );
 				}
 				break;
 			case State.MissileAttack:
@@ -102,8 +103,8 @@ public class FoxBoss1
 						Random.Range( -missileDeviation / 2.0f,
 						missileDeviation / 2.0f ) ) * diff;
 					missile.GetComponent<Rigidbody2D>()
-						.AddForce( diff * missileSpeed,
-						ForceMode2D.Impulse );
+						.AddForce( diff.normalized *
+						missileSpeed,ForceMode2D.Impulse );
 
 					if( ++curMissile > missileVolleySize )
 					{
@@ -134,6 +135,7 @@ public class FoxBoss1
 	[SerializeField] float bulletSpeed = 10.0f;
 
 	[SerializeField] Timer chaseDuration = new Timer( 1.5f );
+	[SerializeField] float chaseSpeed = 10.0f;
 
 	int curMissile = 0;
 	[SerializeField] int missileVolleySize = 6;
