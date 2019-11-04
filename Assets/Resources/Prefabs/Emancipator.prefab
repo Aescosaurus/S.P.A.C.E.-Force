@@ -268,13 +268,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pushForce: 1
-  shotgunPushForce: 3
   bulletSpeed: 3.62
-  shotgunSpread: 15.88
   refire:
     maxTime: 0.2
-  burstRefire:
-    maxTime: 0.5
 --- !u!114 &6483421858628129519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -287,4 +283,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e8aeb1cba6b8964cae84ab12bc4717a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  health: 1
