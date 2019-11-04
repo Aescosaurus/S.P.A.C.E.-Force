@@ -26,7 +26,7 @@ public class EmancipatorShoot
 		shotgun = transform.Find( "Shotgun" );
 		Assert.IsNotNull( shotgun );
 
-		shotgunSpread *= Mathf.Deg2Rad;
+		// shotgunSpread *= Mathf.Deg2Rad;
 	}
 
 	void Update()
@@ -49,26 +49,26 @@ public class EmancipatorShoot
 				diff );
 		}
 
-		if( burstRefire.Update( Time.deltaTime ) &&
-			Input.GetAxis( "Burst" ) > 0.0f )
-		{
-			burstRefire.Reset();
-
-			Vector2 diff = RotateGetDiff();
-
-			body.AddForce( -diff * shotgunPushForce,
-				ForceMode2D.Impulse );
-
-			var angle = Mathf.Atan2( diff.y,diff.x );
-
-			FireBullet( shotgun.position,diff );
-			FireBullet( shotgun.position,new Vector2(
-				Mathf.Cos( angle - shotgunSpread ),
-				Mathf.Sin( angle - shotgunSpread ) ) );
-			FireBullet( shotgun.position,new Vector2(
-				Mathf.Cos( angle + shotgunSpread ),
-				Mathf.Sin( angle + shotgunSpread ) ) );
-		}
+		// if( burstRefire.Update( Time.deltaTime ) &&
+		// 	Input.GetAxis( "Burst" ) > 0.0f )
+		// {
+		// 	burstRefire.Reset();
+		// 
+		// 	Vector2 diff = RotateGetDiff();
+		// 
+		// 	body.AddForce( -diff * shotgunPushForce,
+		// 		ForceMode2D.Impulse );
+		// 
+		// 	var angle = Mathf.Atan2( diff.y,diff.x );
+		// 
+		// 	FireBullet( shotgun.position,diff );
+		// 	FireBullet( shotgun.position,new Vector2(
+		// 		Mathf.Cos( angle - shotgunSpread ),
+		// 		Mathf.Sin( angle - shotgunSpread ) ) );
+		// 	FireBullet( shotgun.position,new Vector2(
+		// 		Mathf.Cos( angle + shotgunSpread ),
+		// 		Mathf.Sin( angle + shotgunSpread ) ) );
+		// }
 	}
 
 	Vector2 RotateGetDiff()
@@ -103,9 +103,9 @@ public class EmancipatorShoot
 	int curGun = 0;
 
 	[SerializeField] float pushForce = 0.0f;
-	[SerializeField] float shotgunPushForce = 0.0f;
+	// [SerializeField] float shotgunPushForce = 0.0f;
 	[SerializeField] float bulletSpeed = 0.0f;
-	[SerializeField] float shotgunSpread = 0.0f;
+	// [SerializeField] float shotgunSpread = 0.0f;
 	[SerializeField] Timer refire = new Timer( 0.2f );
-	[SerializeField] Timer burstRefire = new Timer( 0.5f );
+	// [SerializeField] Timer burstRefire = new Timer( 0.5f );
 }
