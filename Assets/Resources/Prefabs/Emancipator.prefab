@@ -182,6 +182,7 @@ GameObject:
   - component: {fileID: 6754855736719713264}
   - component: {fileID: 6754855736719713270}
   - component: {fileID: 6754855736719713267}
+  - component: {fileID: 6483421858628129519}
   m_Layer: 9
   m_Name: Emancipator
   m_TagString: Player
@@ -274,3 +275,16 @@ MonoBehaviour:
     maxTime: 0.2
   burstRefire:
     maxTime: 0.5
+--- !u!114 &6483421858628129519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6754855736719713266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e8aeb1cba6b8964cae84ab12bc4717a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10

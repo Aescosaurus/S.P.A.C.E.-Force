@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 531513100766098473}
   - component: {fileID: -8798665276303988700}
   - component: {fileID: 8352650058335509630}
+  - component: {fileID: 2986469524506653320}
   m_Layer: 10
   m_Name: SpaceFox
   m_TagString: SpaceFox
@@ -61,6 +62,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fa9d24170e3d476aab9d15f3d84a4e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2986469524506653320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1042879270079250614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e8aeb1cba6b8964cae84ab12bc4717a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 2
 --- !u!1 &1907127947919961547
 GameObject:
   m_ObjectHideFlags: 0

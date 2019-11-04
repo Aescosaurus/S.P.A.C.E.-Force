@@ -26,6 +26,11 @@ public class EmancipatorBullet
 	void OnCollisionEnter2D( Collision2D coll )
 	{
 		// TODO: Deal damage to evil foxes if you hit one.
+		if( coll.gameObject.tag == "SpaceFox" )
+		{
+			coll.gameObject.GetComponent<HealthBar>()
+				.Hurt( 1 );
+		}
 		Destroy( gameObject );
 	}
 

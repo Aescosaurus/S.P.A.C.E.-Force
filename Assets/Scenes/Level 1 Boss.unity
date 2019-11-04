@@ -242,9 +242,10 @@ GameObject:
   - component: {fileID: 271835979}
   - component: {fileID: 271835978}
   - component: {fileID: 271835980}
+  - component: {fileID: 271835981}
   m_Layer: 10
   m_Name: Fox Boss 1
-  m_TagString: Untagged
+  m_TagString: SpaceFox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -339,6 +340,19 @@ MonoBehaviour:
   missileRefire:
     maxTime: 0.12
   missileSpeed: 1.1
+--- !u!114 &271835981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 271835976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e8aeb1cba6b8964cae84ab12bc4717a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 25
 --- !u!1 &732507070
 GameObject:
   m_ObjectHideFlags: 0
