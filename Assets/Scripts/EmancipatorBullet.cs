@@ -17,22 +17,19 @@ public class EmancipatorBullet
 		transform.Rotate( 0.0f,0.0f,
 			rotationSpeed * Time.deltaTime );
 
-		if( despawn.Update( Time.deltaTime ) )
-		{
-			Destroy( gameObject );
-		}
+		// if( despawn.Update( Time.deltaTime ) )
+		// {
+		// 	Destroy( gameObject );
+		// }
 	}
 
 	void OnCollisionEnter2D( Collision2D coll )
 	{
 		// TODO: Deal damage to evil foxes if you hit one.
-		if( coll.gameObject.tag == "Asteroid" )
-		{
-			Destroy( gameObject );
-		}
+		Destroy( gameObject );
 	}
 
-	[SerializeField] Timer despawn = new Timer( 3.5f );
+	// [SerializeField] Timer despawn = new Timer( 3.5f );
 	[SerializeField] float rotationSpeedMin = 0.0f;
 	[SerializeField] float rotationSpeedMax = 0.0f;
 

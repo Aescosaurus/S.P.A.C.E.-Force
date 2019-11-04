@@ -91,6 +91,7 @@ GameObject:
   - component: {fileID: 6684705904330238184}
   - component: {fileID: 6684705904330238185}
   - component: {fileID: 6684705904330238190}
+  - component: {fileID: 1389449725942442150}
   m_Layer: 12
   m_Name: Fox Bullet
   m_TagString: SpaceFox
@@ -160,3 +161,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.25, y: 0.25}
   m_EdgeRadius: 0
+--- !u!114 &1389449725942442150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6684705904330238187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e75f63d674bd56c409a5a92277db4ae2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
