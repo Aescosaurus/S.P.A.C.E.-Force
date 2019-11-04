@@ -25,6 +25,7 @@ public class FoxBoss1
 		Assert.IsNotNull( missile1 );
 		missile2 = transform.Find( "Missile2" );
 		Assert.IsNotNull( missile2 );
+
 		body = GetComponent<Rigidbody2D>();
 		Assert.IsNotNull( body );
 		bulletPrefab = Resources.Load<GameObject>(
@@ -32,6 +33,18 @@ public class FoxBoss1
 		player = GameObject.FindGameObjectWithTag(
 			"Player" );
 		Assert.IsNotNull( player );
+
+		audSrc = GetComponent<AudioSource>();
+		Assert.IsNotNull( audSrc );
+		for( int i = 0; i < 4; ++i )
+		{
+			shootSounds.Add( Resources.Load<AudioClip>(
+				"Sounds/Boss Shoot 0" + ( i + 1 ) ) );
+			Assert.IsNotNull( shootSounds[i] );
+		}
+		explodeSound = Resources.Load<AudioClip>(
+			"Sounds/Boss Explode" );
+		Assert.IsNotNull( explodeSound );
 
 		target = ( Vector2 )transform.position +
 			new Vector2( Random.Range( -3,3 ),
@@ -67,6 +80,8 @@ public class FoxBoss1
 						.AddForce( ( player.transform.position -
 						bullet.transform.position ).normalized *
 						bulletSpeed,ForceMode2D.Impulse );
+					audSrc.PlayOneShot( shootSounds[Random
+						.Range( 0,shootSounds.Count )] );
 
 					if( ++curShot > 1 )
 					{
@@ -105,6 +120,8 @@ public class FoxBoss1
 					missile.GetComponent<Rigidbody2D>()
 						.AddForce( diff.normalized *
 						missileSpeed,ForceMode2D.Impulse );
+					audSrc.PlayOneShot( shootSounds[Random
+						.Range( 0,shootSounds.Count )] );
 
 					if( ++curMissile > missileVolleySize )
 					{
@@ -116,6 +133,8 @@ public class FoxBoss1
 		}
 	}
 
+
+
 	Transform gun1;
 	Transform gun2;
 	Transform missile1;
@@ -123,6 +142,7 @@ public class FoxBoss1
 	Rigidbody2D body;
 	GameObject bulletPrefab;
 	GameObject player;
+	AudioSource audSrc;
 
 	State action = State.Wander;
 
@@ -142,4 +162,7 @@ public class FoxBoss1
 	[SerializeField] float missileDeviation = 20.0f;
 	[SerializeField] Timer missileRefire = new Timer( 0.07f );
 	[SerializeField] float missileSpeed = 5.5f;
+
+	List<AudioClip> shootSounds = new List<AudioClip>();
+	AudioClip explodeSound;
 }
