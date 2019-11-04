@@ -26,6 +26,15 @@ public class EmancipatorShoot
 		shotgun = transform.Find( "Shotgun" );
 		Assert.IsNotNull( shotgun );
 
+		audSrc = GetComponent<AudioSource>();
+		Assert.IsNotNull( audSrc );
+		for( int i = 0; i < 8; ++i )
+		{
+			shootSounds.Add( Resources.Load<AudioClip>(
+				"Sounds/Player Shoot 0" + ( i + 1 ).ToString() ) );
+			Assert.IsNotNull( shootSounds[i] );
+		}
+
 		// shotgunSpread *= Mathf.Deg2Rad;
 	}
 
@@ -91,6 +100,9 @@ public class EmancipatorShoot
 		var bullBody = bull.GetComponent<Rigidbody2D>();
 		bullBody.AddForce( moveDir * bulletSpeed,
 			ForceMode2D.Impulse );
+
+		audSrc.PlayOneShot( shootSounds[Random.Range( 0,
+			shootSounds.Count )] );
 	}
 
 	Rigidbody2D body;
@@ -99,6 +111,9 @@ public class EmancipatorShoot
 	Transform gun1;
 	Transform gun2;
 	Transform shotgun;
+	AudioSource audSrc;
+
+	List<AudioClip> shootSounds = new List<AudioClip>();
 
 	int curGun = 0;
 
