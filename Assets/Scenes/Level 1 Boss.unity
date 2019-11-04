@@ -130,7 +130,7 @@ GameObject:
   m_Component:
   - component: {fileID: 37508058}
   - component: {fileID: 37508059}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -209,7 +209,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 106498493}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Gun1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -242,7 +242,7 @@ GameObject:
   - component: {fileID: 271835979}
   - component: {fileID: 271835978}
   - component: {fileID: 271835980}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Fox Boss 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -341,7 +341,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 732507071}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Missile2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -440,7 +440,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1157771345}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Gun2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -608,7 +608,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1767784649}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Missile1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

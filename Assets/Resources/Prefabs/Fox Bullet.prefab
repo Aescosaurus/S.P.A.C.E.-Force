@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6684705902893383671}
   - component: {fileID: 6684705902893383668}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 6684705904330238184}
   - component: {fileID: 6684705904330238185}
   - component: {fileID: 6684705904330238190}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Fox Bullet
   m_TagString: SpaceFox
   m_Icon: {fileID: 0}
@@ -128,7 +128,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
