@@ -306,7 +306,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 2
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -327,18 +327,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 987f656c1c2344a4baf9399ac7d3deea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wanderSpeed: 10
+  wanderSpeed: 25
   wanderDuration:
     maxTime: 3
-  bulletSpeed: 9
+  bulletSpeed: 1.8
   chaseDuration:
     maxTime: 2.5
-  chaseSpeed: 17
+  chaseSpeed: 34
   missileVolleySize: 6
   missileDeviation: 27.5
   missileRefire:
     maxTime: 0.12
-  missileSpeed: 5.5
+  missileSpeed: 1.1
 --- !u!1 &732507070
 GameObject:
   m_ObjectHideFlags: 0
