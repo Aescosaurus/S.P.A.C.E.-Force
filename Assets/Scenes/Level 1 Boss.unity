@@ -331,6 +331,8 @@ MonoBehaviour:
   wanderSpeed: 25
   wanderDuration:
     maxTime: 3
+  gunRefire:
+    maxTime: 0.55
   bulletSpeed: 1.8
   chaseDuration:
     maxTime: 2.5

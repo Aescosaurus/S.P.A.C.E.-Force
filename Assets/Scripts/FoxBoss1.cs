@@ -131,7 +131,7 @@ public class FoxBoss1
 	[SerializeField] Timer wanderDuration = new Timer( 3.0f );
 
 	int curShot = 0;
-	Timer gunRefire = new Timer( 0.2f );
+	[SerializeField] Timer gunRefire = new Timer( 0.2f );
 	[SerializeField] float bulletSpeed = 10.0f;
 
 	[SerializeField] Timer chaseDuration = new Timer( 1.5f );
