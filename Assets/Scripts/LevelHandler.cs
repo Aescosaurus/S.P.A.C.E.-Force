@@ -33,8 +33,14 @@ public class LevelHandler
 
 		if( kittiesSaved >= kittiesToWin )
 		{
+			// TODO: Play boss music.
 			LoadNextScene();
 		}
+	}
+	public static void DefeatBoss()
+	{
+		// TODO: Open upgrade menu.
+		// When done upgrading go to next level.
 	}
 	public static void LoadNextScene()
 	{
