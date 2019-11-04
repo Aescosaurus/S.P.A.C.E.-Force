@@ -10,8 +10,8 @@ public class LevelHandler
 	[System.Serializable]
 	class SceneInfo
 	{
-		[SerializeField] public string sceneName;
-		[SerializeField] public int kittiesToWin;
+		[SerializeField] public string sceneName = "";
+		[SerializeField] public int kittiesToWin = 0;
 	}
 
 	// Move all instance data to static data.
