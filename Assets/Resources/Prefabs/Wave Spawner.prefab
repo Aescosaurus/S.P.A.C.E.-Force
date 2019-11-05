@@ -47,11 +47,10 @@ MonoBehaviour:
   waveSpawn:
     maxTime: 10
   maxSpawnRange: 19
-  kittensPerWave: 1
   kittenPrefab: {fileID: 8540323863428215811, guid: 1b172408eddce044ca59c27d0f425541,
     type: 3}
   waveSize: 3
-  waveIncrease: 1.5
+  waveIncrease: 1.2
   enemies:
   - {fileID: 1042879270079250614, guid: c6dca51e5aaf04f15be8195a53777c91, type: 3}
   - {fileID: 1042879270079250614, guid: c6dca51e5aaf04f15be8195a53777c91, type: 3}
