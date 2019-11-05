@@ -19,8 +19,11 @@ public class Star
 
 	void Update()
 	{
-		transform.position += ( Vector3 )cam.GetDelta() *
-			parallaxSpeed;
+        if (cam != null)
+        {
+            transform.position += (Vector3)cam.GetDelta() *
+                parallaxSpeed;
+        }
 	}
 
 	float parallaxSpeed;

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StarSpawner
 	:
@@ -10,6 +11,7 @@ public class StarSpawner
 	{
 		starPrefab = Resources.Load<GameObject>(
 			"Prefabs/Star" );
+        mainMenuStarPrefab = Resources.Load<GameObject>("Prefabs/menuStar");
 
 		for( int i = 0; i < nStars; ++i )
 		{
@@ -27,15 +29,23 @@ public class StarSpawner
 
 	void CreateStar( Vector2 loc )
 	{
+        GameObject star;
 		var spr = starSprites[Random.Range( 0,
 			starSprites.Length )];
-
-		var star = Instantiate( starPrefab,transform );
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Main Menu"))
+        {
+            star = Instantiate(mainMenuStarPrefab, transform);
+        }
+        else
+        {
+            star = Instantiate(starPrefab, transform);
+        }
 		star.transform.position = loc;
 		star.GetComponent<SpriteRenderer>().sprite = spr;
 	}
 
 	GameObject starPrefab;
+    GameObject mainMenuStarPrefab;
 
 	[SerializeField] int nStars = 0;
 	[SerializeField] float starSpawnRange = 0.0f;
