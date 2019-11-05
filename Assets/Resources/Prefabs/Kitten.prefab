@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 5
+  explodeSound: {fileID: 8300000, guid: 6e146e418a184af408df3f31d0d99ed0, type: 3}
 --- !u!1 &8540323864508527546
 GameObject:
   m_ObjectHideFlags: 0
