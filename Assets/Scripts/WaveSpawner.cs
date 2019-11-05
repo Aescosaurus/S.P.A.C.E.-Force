@@ -12,6 +12,13 @@ public class WaveSpawner
 		curWaveSize = waveSize;
 
 		Assert.IsTrue( enemies.Length > 1 );
+
+		audSrc = GetComponent<AudioSource>();
+		Assert.IsNotNull( audSrc );
+
+		waveSpawnSound = Resources.Load<AudioClip>(
+			"Sounds/Fox Warp In" );
+		Assert.IsNotNull( waveSpawnSound );
 	}
 
 	void Update()
@@ -35,6 +42,8 @@ public class WaveSpawner
 					enemy.transform.position =
 						GenerateRandPos();
 				}
+
+				audSrc.PlayOneShot( waveSpawnSound );
 
 				curWaveSize = ( int )(
 					( float )curWaveSize * waveIncrease );
@@ -60,7 +69,7 @@ public class WaveSpawner
 
 	[SerializeField] Timer waveSpawn = new Timer( 10.0f );
 	[SerializeField] float maxSpawnRange = 0.0f;
-	[SerializeField] int kittensPerWave = 0;
+	// [SerializeField] int kittensPerWave = 0;
 	[SerializeField] GameObject kittenPrefab = null;
 	[SerializeField] int waveSize = 0;
 	[SerializeField] float waveIncrease = 0.0f;
@@ -68,4 +77,8 @@ public class WaveSpawner
 
 	Timer waveCheck = new Timer( 1.0f );
 	int curWaveSize;
+
+	AudioSource audSrc;
+
+	AudioClip waveSpawnSound;
 }
