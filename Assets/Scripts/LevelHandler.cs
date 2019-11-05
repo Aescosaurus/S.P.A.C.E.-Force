@@ -21,10 +21,6 @@ public class LevelHandler
 		{
 			sceneList.Add( scene );
 		}
-
-		LoadNextScene();
-
-		Destroy( gameObject );
 	}
 
 	public static void SaveKitty()
@@ -52,7 +48,27 @@ public class LevelHandler
 		++curLevel;
 	}
 
-	[SerializeField] SceneInfo[] sceneOrder = {};
+    public static void LoadCreditsScene()
+    {
+
+    }
+
+    public void PlayGame()
+    {
+        LoadNextScene();
+    }
+
+    public void ShowCredits()
+    {
+        LoadCreditsScene();
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
+    [SerializeField] SceneInfo[] sceneOrder = {};
 
 	static List<SceneInfo> sceneList = new List<SceneInfo>();
 
