@@ -8,11 +8,6 @@ public class HealthBar
 	:
 	MonoBehaviour
 {
-	void Start()
-	{
-
-	}
-
 	public void Hurt( int damage )
 	{
 		health -= damage;
@@ -23,9 +18,5 @@ public class HealthBar
 		}
 	}
 
-	GameObject explosionPrefab;
-
 	[SerializeField] int health = 0;
-	[SerializeField] AudioClip explosionSound;
-	[SerializeField] Animation explosionAnimation;
 }
