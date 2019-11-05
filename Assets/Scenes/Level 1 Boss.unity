@@ -356,7 +356,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 25
-  hurtSound: {fileID: 8300000, guid: e54b41464ef15bd4cb5c8ae9e95601b1, type: 3}
+  hurtSound: {fileID: 0}
   explodeSound: {fileID: 8300000, guid: 78aca75dd665762429adb6012d18f0a1, type: 3}
 --- !u!82 &271835982
 AudioSource:
