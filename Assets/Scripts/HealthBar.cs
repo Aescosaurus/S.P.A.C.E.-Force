@@ -15,11 +15,19 @@ public class HealthBar
 		explosionPrefab = Resources.Load<GameObject>(
 			"Prefabs/Explosion" );
 		Assert.IsNotNull( explosionPrefab );
+
+		audSrc = GetComponent<AudioSource>();
 	}
 
 	public void Hurt( int damage )
 	{
 		health -= damage;
+
+		if( audSrc != null && hurtSound != null )
+		{
+			audSrc.PlayOneShot( hurtSound );
+		}
+
 		if( health <= 0 )
 		{
 			// Play explosion animation.
@@ -32,7 +40,9 @@ public class HealthBar
 	}
 
 	GameObject explosionPrefab;
+	AudioSource audSrc;
 
 	[SerializeField] int health = 0;
+	[SerializeField] AudioClip hurtSound = null;
 	[SerializeField] AudioClip explodeSound = null;
 }
