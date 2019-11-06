@@ -105,6 +105,14 @@ public class EmancipatorShoot
 			shootSounds.Count )] );
 	}
 
+	void OnCollisionEnter2D( Collision2D coll )
+	{
+		if( coll.gameObject.tag == "SpaceFox" )
+		{
+			GetComponent<HealthBar>().Hurt( 1 );
+		}
+	}
+
 	Rigidbody2D body;
 	Camera cam;
 	GameObject bulletPrefab;
