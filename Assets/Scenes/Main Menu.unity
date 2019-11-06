@@ -642,6 +642,8 @@ MonoBehaviour:
     kittiesToWin: 1
   - sceneName: Level 2
     kittiesToWin: 5
+  - sceneName: Level 2 Boss
+    kittiesToWin: 1
 --- !u!4 &1579586669
 Transform:
   m_ObjectHideFlags: 0
