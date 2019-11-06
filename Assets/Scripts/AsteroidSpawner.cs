@@ -29,6 +29,18 @@ public class AsteroidSpawner
 				--i;
 			}
 		}
+
+		for( int i = 0; i < nRandomAsteroids; ++i )
+		{
+			var rand = new Vector2( Random.Range( -1.0f,1.0f ),
+				Random.Range( -1.0f,1.0f ) );
+			if( rand.x == 0.0f ) rand.x = 1.0f;
+			if( rand.y == 0.0f ) rand.y = 1.0f;
+			var astPos = rand.normalized * Random.Range(
+				0.0f,minBoundsSpawnRange - 1.0f );
+
+			CreateAsteroid( astPos );
+		}
 	}
 
 	bool CreateAsteroid( Vector2 loc )
@@ -59,6 +71,7 @@ public class AsteroidSpawner
 	[SerializeField] public float minBoundsSpawnRange = 0.0f;
 	[SerializeField] float maxBoundsSpawnRange = 0.0f;
 	[SerializeField] int nBorderAsteroids = 0;
+	[SerializeField] int nRandomAsteroids = 0;
 	[Header( "Sprites" )]
 	[SerializeField] Sprite[] asteroidSprites = {};
 }

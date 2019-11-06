@@ -907,5 +907,10 @@ PrefabInstance:
       propertyPath: nBorderAsteroids
       value: 600
       objectReference: {fileID: 0}
+    - target: {fileID: 7125002270044513267, guid: fdb94813193c11645bf2b29e317b1991,
+        type: 3}
+      propertyPath: nRandomAsteroids
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fdb94813193c11645bf2b29e317b1991, type: 3}
