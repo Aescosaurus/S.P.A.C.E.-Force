@@ -29,13 +29,29 @@ public class KittenHomeworld
 			audSrc.PlayOneShot( kittenSaveSound );
 			Destroy( coll.gameObject );
 			LevelHandler.SaveKitty();
-			// TODO: Push back all enemies.
+
+			var enemies = GameObject
+				.FindGameObjectsWithTag( "SpaceFox" );
+			foreach( var enemy in enemies )
+			{
+				var diff = enemy.transform.position -
+					transform.position;
+				if( diff.sqrMagnitude <
+					pushBackDistance * pushBackDistance )
+				{
+					enemy.GetComponent<Rigidbody2D>()
+						.AddForce( diff.normalized *
+						pushBackPower,ForceMode2D.Impulse );
+				}
+			}
 		}
 	}
 
 	AudioSource audSrc;
 
 	[SerializeField] float rotSpeed = 0.0f;
+	[SerializeField] float pushBackDistance = 6.0f;
+	[SerializeField] float pushBackPower = 4.0f;
 
 	AudioClip kittenSaveSound;
 }
