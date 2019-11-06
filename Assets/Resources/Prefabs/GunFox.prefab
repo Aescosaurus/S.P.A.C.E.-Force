@@ -270,6 +270,7 @@ MonoBehaviour:
     maxTime: 5
   moveSpeed: 44
   bulletSpeed: 0.8
+  maxSpeed: 70
 --- !u!114 &7292528979854803257
 MonoBehaviour:
   m_ObjectHideFlags: 0
