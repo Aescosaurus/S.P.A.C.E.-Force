@@ -72,13 +72,15 @@ public class HealthBar
 
         if ( health <= 0 )
 		{
-			// Play explosion animation.
 			var explosion = Instantiate( explosionPrefab );
 			var clip = explosion.GetComponent<AudioSource>();
 			clip.clip = explodeSound;
 			clip.Play();
-            DestroyHealthBar();
-			Destroy( gameObject );
+			if( tag != "Player" )
+			{
+				DestroyHealthBar();
+				Destroy( gameObject );
+			}
 		}
 	}
 

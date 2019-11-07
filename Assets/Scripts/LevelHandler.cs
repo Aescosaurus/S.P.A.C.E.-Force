@@ -47,22 +47,28 @@ public class LevelHandler
 
 		++curLevel;
 	}
-
+	public static void Reset()
+	{
+		kittiesSaved = 0;
+	}
+	public static void Restart()
+	{
+		curLevel = 0;
+		kittiesSaved = 0;
+		kittiesToWin = 0;
+	}
     public static void LoadCreditsScene()
     {
 
     }
-
     public void PlayGame()
     {
         LoadNextScene();
     }
-
     public void ShowCredits()
     {
         LoadCreditsScene();
     }
-
     public void QuitGame()
     {
         Application.Quit();
