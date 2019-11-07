@@ -10,7 +10,8 @@ public class FoxBoss2
 	enum State
 	{
 		MissileShotgun,
-		Lasers, // Shoots 3 bullets from each in rapid succession
+		Move,
+		Lasers,
 		MissileShotgunBounce,
 		Wait,
 		MissileBarrage,
@@ -24,10 +25,20 @@ public class FoxBoss2
 		Assert.IsNotNull( missilePrefab );
 		player = GameObject.FindGameObjectWithTag( "Player" );
 		Assert.IsNotNull( "Player" );
+		bulletPrefab = Resources.Load<GameObject>(
+			"Prefabs/Fox Bullet" );
+		Assert.IsNotNull( bulletPrefab );
+		body = GetComponent<Rigidbody2D>();
+		Assert.IsNotNull( body );
 
 		for( int i = 0; i < 3; ++i )
 		{
 			shotgunSpawns[i] = transform.Find( "Shotgun" +
+				( i + 1 ).ToString() );
+		}
+		for( int i = 0; i < 2; ++i )
+		{
+			laserSpawns[i] = transform.Find( "Laser" +
 				( i + 1 ).ToString() );
 		}
 	}
@@ -49,18 +60,58 @@ public class FoxBoss2
 						0,shotgunSpawns.Length )].position;
 					for( int i = 0; i < nShotgunBullets; ++i )
 					{
-						FireBullet( spawn,start,null );
+						FireMissile( spawn,start,null );
 						start = Deviate( start,shotgunSpread );
 					}
 
 					if( ++curShotgunBurst >= shotgunSpawns.Length )
 					{
 						curShotgunBurst = 0;
-						action = State.Lasers;
+						action = State.Move;
+						moveVel = new Vector2( Random.Range( -1.0f,1.0f ),
+							Random.Range( -1.0f,1.0f ) );
 					}
 				}
 				break;
+			case State.Move:
+				if( moveDuration.Update( Time.deltaTime ) )
+				{
+					moveDuration.Reset();
+					action = State.Lasers;
+				}
+				else
+				{
+					body.AddForce( moveVel * moveSpeed *
+						Time.deltaTime );
+				}
+				break;
 			case State.Lasers:
+				if( laserReload.Update( Time.deltaTime ) )
+				{
+					laserTarget = player.transform.position;
+
+					if( laserRefire.Update( Time.deltaTime ) )
+					{
+						laserRefire.Reset();
+
+						FireBullet( laserSpawns[curLaserVolley].position,
+							( laserTarget - ( Vector2 )transform.position )
+							.normalized * laserMoveSpeed );
+
+						if( ++curLaser >= laserVolleySize )
+						{
+							curLaser = 0;
+							++curLaserVolley;
+							laserReload.Reset();
+						}
+					}
+
+					if( curLaserVolley >= laserSpawns.Length )
+					{
+						curLaserVolley = 0;
+						action = State.MissileShotgunBounce;
+					}
+				}
 				break;
 			case State.MissileShotgunBounce:
 				break;
@@ -73,19 +124,21 @@ public class FoxBoss2
 		}
 	}
 
-	void FireBullet( Vector2 loc,Vector2 vel,Transform target )
+	void FireMissile( Vector2 loc,Vector2 vel,Transform target )
 	{
-		// var bullet = Instantiate( bulletPrefab );
-		// bullet.transform.position = curShot == 0
-		// 	? gun1.position : gun2.position;
-		// bullet.GetComponent<Rigidbody2D>()
-		// 	.AddForce( diff.normalized *
-		// 	bulletSpeed,ForceMode2D.Impulse );
 		var missile = Instantiate( missilePrefab );
 		missile.transform.position = loc;
 		var scr = missile.GetComponent<FoxMissile>();
 		scr.SetVel( vel );
 		scr.SetTarget( target );
+	}
+
+	void FireBullet( Vector2 loc,Vector2 vel )
+	{
+		var bullet = Instantiate( bulletPrefab );
+		bullet.transform.position = loc;
+		bullet.GetComponent<Rigidbody2D>()
+			.AddForce( vel,ForceMode2D.Impulse );
 	}
 
 	void OnDestroy()
@@ -104,6 +157,8 @@ public class FoxBoss2
 
 	GameObject missilePrefab;
 	GameObject player;
+	GameObject bulletPrefab;
+	Rigidbody2D body;
 
 	[Header( "Missile Shotgun" )]
 	[SerializeField] int nShotgunBullets = 5;
@@ -112,5 +167,20 @@ public class FoxBoss2
 	Transform[] shotgunSpawns = new Transform[3];
 	int curShotgunBurst = 0;
 
-	State action = State.MissileShotgun;
+	[Header( "Move" )]
+	[SerializeField] Timer moveDuration = new Timer( 3.0f );
+	[SerializeField] float moveSpeed = 25.0f;
+	Vector2 moveVel = Vector2.zero;
+
+	[Header( "Lasers" )]
+	[SerializeField] int laserVolleySize = 3;
+	[SerializeField] Timer laserRefire = new Timer( 0.1f );
+	[SerializeField] Timer laserReload = new Timer( 1.5f );
+	[SerializeField] float laserMoveSpeed = 1.2f;
+	Transform[] laserSpawns = new Transform[2];
+	int curLaserVolley = 0;
+	int curLaser = 0;
+	Vector2 laserTarget = Vector2.zero;
+
+	State action = State.Lasers;
 }
