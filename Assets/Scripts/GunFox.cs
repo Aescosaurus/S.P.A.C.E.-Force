@@ -55,10 +55,18 @@ public class GunFox
 				}
 			}
 		}
-		else
+		else if( body.velocity.sqrMagnitude <
+			maxSpeed * maxSpeed )
 		{
 			body.AddForce( diff.normalized * moveSpeed *
 				Time.deltaTime );
+		}
+
+		if( body.velocity.x != 0.0f )
+		{
+			var scale = transform.localScale;
+			scale.x = body.velocity.x / Mathf.Abs( body.velocity.x );
+			transform.localScale = scale;
 		}
 	}
 
@@ -75,4 +83,5 @@ public class GunFox
 	[SerializeField] Timer reload = new Timer( 5.0f );
 	[SerializeField] float moveSpeed = 50.0f;
 	[SerializeField] float bulletSpeed = 10.0f;
+	[SerializeField] float maxSpeed = 100.0f;
 }

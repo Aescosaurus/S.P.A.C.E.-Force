@@ -133,7 +133,10 @@ public class FoxBoss1
 		}
 	}
 
-
+	void OnDestroy()
+	{
+		LevelHandler.SaveKitty();
+	}
 
 	Transform gun1;
 	Transform gun2;
