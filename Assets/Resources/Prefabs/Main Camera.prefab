@@ -109,4 +109,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec13910497658f34a918d741824de196, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scaleFactor: 7.6
+  scaleFactor: 6.3
+  scaleSpeed: 0.7
+  offset: 0.4

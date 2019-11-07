@@ -22,10 +22,13 @@ public class CameraFocus
 
 	void Update()
 	{
-		var size = cam.orthographicSize;
-		size = startSize + body.velocity.magnitude /
-			scaleFactor;
-		cam.orthographicSize = size;
+		// cam.orthographicSize = startSize +
+		// 	body.velocity.magnitude / scaleFactor;
+		cam.orthographicSize = Vector2.Lerp(
+			Vector2.right * cam.orthographicSize,
+			Vector2.right * ( ( startSize - offset ) +
+			body.velocity.magnitude /
+			scaleFactor ),scaleSpeed * Time.deltaTime ).x;
 	}
 
 	GameObject player;
@@ -34,4 +37,6 @@ public class CameraFocus
 
 	float startSize;
 	[SerializeField] float scaleFactor = 4.0f;
+	[SerializeField] float scaleSpeed = 0.2f;
+	[SerializeField] float offset = 1.0f;
 }
