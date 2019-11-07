@@ -17,14 +17,17 @@ public class CameraMove
 
 	void FixedUpdate()
 	{
-		Vector2 diff = player.transform.position -
-			transform.position;
+        if (player != null)
+        {
+            Vector2 diff = player.transform.position -
+                transform.position;
 
-		transform.position += ( Vector3 )diff;
+            transform.position += (Vector3)diff;
 
-		delta = ( Vector2 )transform.position - lastPos;
+            delta = (Vector2)transform.position - lastPos;
 
-		lastPos = transform.position;
+            lastPos = transform.position;
+        }
 	}
 
 	public Vector2 GetDelta()

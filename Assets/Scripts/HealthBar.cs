@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.UI;
 
 // other.GetComponent<HealthBar>.Hurt( 1 );
 public class HealthBar 
@@ -10,6 +11,11 @@ public class HealthBar
 {
 	void Start()
 	{
+        float y = gameObject.name == "Fox Boss 1" ? gameObject.GetComponentInChildren<SpriteRenderer>().bounds.size.y * 96 : gameObject.GetComponentInChildren<SpriteRenderer>().bounds.size.y * 48;
+        Vector3 sizeMultiplier = gameObject.name == "Fox Boss 1" ? new Vector3(2, 2, 2) : new Vector3(1, 1, 1);
+        screenOffset = new Vector3(0, y, 0);
+        totalHealth = health;
+        canvas = GameObject.Find("Canvas");        
 		Assert.IsNotNull( explodeSound );
 
 		explosionPrefab = Resources.Load<GameObject>(
@@ -17,9 +23,36 @@ public class HealthBar
 		Assert.IsNotNull( explosionPrefab );
 
 		audSrc = GetComponent<AudioSource>();
-	}
 
-	public void Hurt( int damage )
+        //
+        // Health Bar
+        //
+        if (gameObject.tag != "Player")
+        {
+            healthBar = Instantiate(healthBarPrefab, transform.position, Quaternion.identity, canvas.transform);
+            images = healthBar.GetComponentsInChildren<Image>();
+            foreach (Image img in images)
+            {
+                if (img.gameObject.tag == "HealthBarFill")
+                {
+                    fillImage = img;
+                }
+            }
+            fillImage.fillAmount = 1;
+            healthBar.transform.localScale = sizeMultiplier;
+        }
+    }
+
+    private void LateUpdate()
+    {
+        if (gameObject.tag != "Player")
+        {
+            healthBar.transform.position = Camera.main.WorldToScreenPoint(this.gameObject.transform.position) + screenOffset;
+        }
+    }
+
+
+    public void Hurt( int damage )
 	{
 		health -= damage;
 
@@ -28,21 +61,39 @@ public class HealthBar
 			audSrc.PlayOneShot( hurtSound );
 		}
 
-		if( health <= 0 )
+        if (gameObject.tag != "Player")
+        {
+            fillImage.fillAmount = ((float)health / (float)totalHealth);
+        }
+
+        if ( health <= 0 )
 		{
 			// Play explosion animation.
 			var explosion = Instantiate( explosionPrefab );
 			var clip = explosion.GetComponent<AudioSource>();
 			clip.clip = explodeSound;
 			clip.Play();
+            DestroyHealthBar();
 			Destroy( gameObject );
 		}
 	}
 
-	GameObject explosionPrefab;
+    public void DestroyHealthBar()
+    {
+        Destroy(healthBar);
+    }
+
+    GameObject explosionPrefab;
+    GameObject healthBar;
 	AudioSource audSrc;
+    Image[] images;
+    Image fillImage;
+    GameObject canvas;
+    int totalHealth;
+    Vector3 screenOffset;
 
 	[SerializeField] int health = 0;
 	[SerializeField] AudioClip hurtSound = null;
 	[SerializeField] AudioClip explodeSound = null;
+    [SerializeField] GameObject healthBarPrefab = null;
 }

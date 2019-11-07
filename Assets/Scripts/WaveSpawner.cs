@@ -64,7 +64,7 @@ public class WaveSpawner
 		if( rand.x == 0.0f ) rand.x = 1.0f;
 		if( rand.y == 0.0f ) rand.y = 1.0f;
 		return( rand.normalized * Random.Range(
-			0.0f,maxSpawnRange ) );
+			1.5f,maxSpawnRange ) );
 	}
 
 	[SerializeField] Timer waveSpawn = new Timer( 10.0f );

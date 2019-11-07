@@ -9,6 +9,7 @@ public class EmancipatorShoot
 {
 	void Start()
 	{
+        canvas = GameObject.Find("Canvas");
 		body = GetComponent<Rigidbody2D>();
 		Assert.IsNotNull( body );
 
@@ -113,18 +114,26 @@ public class EmancipatorShoot
 		}
 	}
 
-	Rigidbody2D body;
+    private void OnDestroy()
+    {
+        Debug.Log(deathUI.name + " - " + GameObject.Find("Canvas").name);
+        Instantiate(deathUI, canvas.transform);
+    }
+
+    Rigidbody2D body;
 	Camera cam;
 	GameObject bulletPrefab;
 	Transform gun1;
 	Transform gun2;
 	Transform shotgun;
 	AudioSource audSrc;
+    GameObject canvas;
 
 	List<AudioClip> shootSounds = new List<AudioClip>();
 
 	int curGun = 0;
 
+    [SerializeField] GameObject deathUI = null;
 	[SerializeField] float pushForce = 0.0f;
 	// [SerializeField] float shotgunPushForce = 0.0f;
 	[SerializeField] float bulletSpeed = 0.0f;

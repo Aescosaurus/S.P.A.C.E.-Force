@@ -8,11 +8,12 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 531513100766098473}
+  - component: {fileID: 9014010003647249875}
   - component: {fileID: -8798665276303988700}
   - component: {fileID: 1774287578563595504}
   - component: {fileID: 8352650058335509630}
   - component: {fileID: 2986469524506653320}
+  - component: {fileID: 2700388624118643467}
   m_Layer: 10
   m_Name: SpaceFox
   m_TagString: SpaceFox
@@ -20,21 +21,26 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &531513100766098473
-Transform:
+--- !u!224 &9014010003647249875
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1042879270079250614}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5, y: 3, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2421322058853989363}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 5, y: 3}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!58 &-8798665276303988700
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -174,6 +180,16 @@ MonoBehaviour:
   health: 2
   hurtSound: {fileID: 0}
   explodeSound: {fileID: 8300000, guid: c1338a5c916eb3d46a1a8a2cb64199d1, type: 3}
+  healthBarPrefab: {fileID: 2366513328186206373, guid: c11a29bb0eff943feba90da8c67c7cc4,
+    type: 3}
+--- !u!222 &2700388624118643467
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1042879270079250614}
+  m_CullTransparentMesh: 0
 --- !u!1 &1907127947919961547
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,7 +218,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 531513100766098473}
+  m_Father: {fileID: 9014010003647249875}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6147403368534973148

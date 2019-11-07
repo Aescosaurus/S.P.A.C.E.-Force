@@ -36,8 +36,15 @@ public class Kitten
 		}
 	}
 
-	GameObject player = null;
+    private void OnDestroy()
+    {
+        healthBar = GetComponent<HealthBar>();
+        healthBar.DestroyHealthBar();
+    }
+
+    GameObject player = null;
 	Rigidbody2D body;
+    HealthBar healthBar;
 
 	const float moveSpeed = 55.2f;
 }

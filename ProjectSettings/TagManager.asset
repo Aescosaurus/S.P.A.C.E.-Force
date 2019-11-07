@@ -9,6 +9,7 @@ TagManager:
   - SpaceFox
   - SpaceKitten
   - FoxBullet
+  - HealthBarFill
   layers:
   - Default
   - TransparentFX

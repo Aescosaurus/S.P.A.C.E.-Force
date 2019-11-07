@@ -285,6 +285,8 @@ MonoBehaviour:
   health: 4
   hurtSound: {fileID: 0}
   explodeSound: {fileID: 8300000, guid: c1338a5c916eb3d46a1a8a2cb64199d1, type: 3}
+  healthBarPrefab: {fileID: 2366513328186206373, guid: c11a29bb0eff943feba90da8c67c7cc4,
+    type: 3}
 --- !u!1 &7292528980621929851
 GameObject:
   m_ObjectHideFlags: 0
