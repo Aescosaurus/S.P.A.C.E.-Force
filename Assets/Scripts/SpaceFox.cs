@@ -18,8 +18,15 @@ public class SpaceFox : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        playerPosition = player.transform.position;
-        transform.position = Vector2.MoveTowards(transform.position, playerPosition, moveSpeed);
+        if (player != null)
+        {
+            playerPosition = player.transform.position;
+            transform.position = Vector2.MoveTowards(transform.position, playerPosition, moveSpeed);
+        }
+        else
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
