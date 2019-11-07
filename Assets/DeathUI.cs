@@ -20,11 +20,13 @@ public class DeathUI : MonoBehaviour
     public void ExitToMainMenu()
     {
         SceneManager.LoadScene("Main Menu");
+		LevelHandler.Restart();
     }
 
     public void RestartLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+		LevelHandler.Reset();
     }
 
     private void OnDestroy()

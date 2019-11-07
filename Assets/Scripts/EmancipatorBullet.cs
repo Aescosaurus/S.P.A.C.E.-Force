@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 public class EmancipatorBullet
 	:
@@ -10,6 +11,14 @@ public class EmancipatorBullet
 	{
 		rotationSpeed = Random.Range( rotationSpeedMin,
 			rotationSpeedMax );
+
+		explosionPrefab = Resources.Load<GameObject>(
+			"Prefabs/Explosion" );
+		Assert.IsNotNull( explosionPrefab );
+
+		explodeSound = Resources.Load<AudioClip>(
+			"Sounds/Asteroid Hit" );
+		Assert.IsNotNull( explodeSound );
 	}
 
 	void Update()
@@ -31,8 +40,15 @@ public class EmancipatorBullet
 			coll.gameObject.GetComponent<HealthBar>()
 				.Hurt( 1 );
 		}
+		var explosion = Instantiate( explosionPrefab );
+		var clip = explosion.GetComponent<AudioSource>();
+		clip.clip = explodeSound;
+		clip.Play();
 		Destroy( gameObject );
 	}
+
+	GameObject explosionPrefab;
+	AudioClip explodeSound;
 
 	// [SerializeField] Timer despawn = new Timer( 3.5f );
 	[SerializeField] float rotationSpeedMin = 0.0f;

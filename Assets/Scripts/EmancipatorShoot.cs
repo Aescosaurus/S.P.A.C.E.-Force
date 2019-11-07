@@ -110,15 +110,19 @@ public class EmancipatorShoot
 	{
 		if( coll.gameObject.tag == "SpaceFox" )
 		{
-			GetComponent<HealthBar>().Hurt( 1 );
+			var healthBar = GetComponent<HealthBar>();
+			healthBar.Hurt( 1 );
+
+			Debug.Log( deathUI.name + " - " + GameObject.Find( "Canvas" ).name );
+			Instantiate( deathUI,canvas.transform );
 		}
 	}
 
-    private void OnDestroy()
-    {
-        Debug.Log(deathUI.name + " - " + GameObject.Find("Canvas").name);
-        Instantiate(deathUI, canvas.transform);
-    }
+    // private void OnDestroy()
+    // {
+    //     Debug.Log(deathUI.name + " - " + GameObject.Find("Canvas").name);
+    //     Instantiate(deathUI, canvas.transform);
+    // }
 
     Rigidbody2D body;
 	Camera cam;
