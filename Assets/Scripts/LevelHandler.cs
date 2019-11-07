@@ -49,6 +49,8 @@ public class LevelHandler
 	}
 	public static void Reset()
 	{
+		LoadNextScene();
+		--curLevel;
 		kittiesSaved = 0;
 	}
 	public static void Restart()
@@ -56,6 +58,7 @@ public class LevelHandler
 		curLevel = 0;
 		kittiesSaved = 0;
 		kittiesToWin = 0;
+		LoadNextScene();
 	}
     public static void LoadCreditsScene()
     {
