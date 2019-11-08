@@ -62,7 +62,7 @@ public class HealthBar
 
 		if( audSrc != null && hurtSound != null )
 		{
-			audSrc.PlayOneShot( hurtSound );
+			audSrc.PlayOneShot( hurtSound,0.6f );
 		}
 
         if (gameObject.tag != "Player")
@@ -75,6 +75,7 @@ public class HealthBar
 			var explosion = Instantiate( explosionPrefab );
 			var clip = explosion.GetComponent<AudioSource>();
 			clip.clip = explodeSound;
+			clip.volume = 0.5f;
 			clip.Play();
 
 			var scr = GetComponent<FoxBossBase>();

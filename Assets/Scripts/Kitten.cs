@@ -27,7 +27,7 @@ public class Kitten
 			coll.gameObject.tag == "Player" )
 		{
 			player = coll.gameObject;
-			audSrc.PlayOneShot( saveSound );
+			audSrc.PlayOneShot( saveSound,0.8f );
 		}
 		else if( coll.gameObject.tag == "SpaceFox" )
 		{

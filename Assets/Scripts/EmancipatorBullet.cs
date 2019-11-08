@@ -45,7 +45,7 @@ public class EmancipatorBullet
 			var explosion = Instantiate( explosionPrefab );
 			var clip = explosion.GetComponent<AudioSource>();
 			clip.clip = explodeSound;
-			clip.volume = 0.5f;
+			clip.volume = 0.13f;
 			clip.Play();
 		}
 		Destroy( gameObject );

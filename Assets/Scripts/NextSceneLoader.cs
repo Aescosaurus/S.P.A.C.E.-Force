@@ -11,6 +11,7 @@ public class NextSceneLoader
 	{
 		audSrc = GetComponent<AudioSource>();
 		Assert.IsNotNull( audSrc );
+		audSrc.volume = 0.5f;
 
 		GameObject.Find( "Music Player" )
 			.GetComponent<AudioSource>().Stop();

@@ -180,7 +180,7 @@ public class FoxBoss3
 		scr.SetTarget( target );
 
 		audSrc.PlayOneShot( shootSounds[Random
-			.Range( 0,shootSounds.Count )] );
+			.Range( 0,shootSounds.Count )],0.5f );
 	}
 
 	void FireBullet( Vector2 loc,Vector2 vel )
@@ -191,7 +191,7 @@ public class FoxBoss3
 			.AddForce( vel,ForceMode2D.Impulse );
 
 		audSrc.PlayOneShot( shootSounds[Random
-			.Range( 0,shootSounds.Count )] );
+			.Range( 0,shootSounds.Count )],0.5f );
 	}
 
 	Vector2 Deviate( Vector2 start,float dev )
