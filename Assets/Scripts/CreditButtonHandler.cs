@@ -18,6 +18,10 @@ public class CreditButtonHandler
 	{
 		Application.OpenURL( "https://discord.gg/TPMTph" );
 	}
+	public void OpenAescGithub()
+	{
+		Application.OpenURL( "https://github.com/Aescosaurus" );
+	}
 
 	public void OpenCosInsta()
 	{
