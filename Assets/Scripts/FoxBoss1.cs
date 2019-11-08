@@ -5,7 +5,7 @@ using UnityEngine.Assertions;
 
 public class FoxBoss1
 	:
-	MonoBehaviour
+	FoxBossBase
 {
 	enum State
 	{
@@ -133,10 +133,10 @@ public class FoxBoss1
 		}
 	}
 
-	void OnDestroy()
-	{
-		LevelHandler.SaveKitty();
-	}
+	// void OnDestroy()
+	// {
+	// 	// LevelHandler.SaveKitty();
+	// }
 
 	Transform gun1;
 	Transform gun2;

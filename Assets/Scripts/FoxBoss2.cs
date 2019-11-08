@@ -5,7 +5,7 @@ using UnityEngine.Assertions;
 
 public class FoxBoss2
 	:
-	MonoBehaviour
+	FoxBossBase
 {
 	enum State
 	{
@@ -165,10 +165,10 @@ public class FoxBoss2
 			.Range( 0,shootSounds.Count )] );
 	}
 
-	void OnDestroy()
-	{
-		LevelHandler.SaveKitty();
-	}
+	// void OnDestroy()
+	// {
+	// 	LevelHandler.SaveKitty();
+	// }
 
 	Vector2 Deviate( Vector2 start,float dev )
 	{

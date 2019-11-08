@@ -9,6 +9,8 @@ public class EmancipatorShoot
 {
 	void Start()
 	{
+		deathUI = Resources.Load<GameObject>(
+			"Prefabs/DeathUI" );
         canvas = GameObject.Find("Canvas");
 		body = GetComponent<Rigidbody2D>();
 		Assert.IsNotNull( body );
@@ -137,7 +139,7 @@ public class EmancipatorShoot
 
 	int curGun = 0;
 
-    [SerializeField] GameObject deathUI = null;
+    /*[SerializeField]*/ GameObject deathUI = null;
 	[SerializeField] float pushForce = 0.0f;
 	// [SerializeField] float shotgunPushForce = 0.0f;
 	[SerializeField] float bulletSpeed = 0.0f;

@@ -636,12 +636,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneOrder:
+  - sceneName: Main Menu
+    kittiesToWin: 1
   - sceneName: Level 1
-    kittiesToWin: 3
+    kittiesToWin: 2
   - sceneName: Level 1 Boss
     kittiesToWin: 1
   - sceneName: Level 2
-    kittiesToWin: 5
+    kittiesToWin: 3
   - sceneName: Level 2 Boss
     kittiesToWin: 1
 --- !u!4 &1579586669

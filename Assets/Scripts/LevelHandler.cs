@@ -38,26 +38,24 @@ public class LevelHandler
 		// TODO: Open upgrade menu.
 		// When done upgrading go to next level.
 	}
-	public static void LoadNextScene()
+	static void LoadNextScene()
 	{
+		++curLevel;
+
 		SceneManager.LoadScene( sceneList[curLevel].sceneName );
 		kittiesToWin = sceneList[curLevel].kittiesToWin;
 
 		kittiesSaved = 0;
 
-		++curLevel;
 	}
 	public static void Reset()
 	{
 		--curLevel;
 		LoadNextScene();
-		kittiesSaved = 0;
 	}
 	public static void Restart()
 	{
 		curLevel = 0;
-		kittiesSaved = 0;
-		kittiesToWin = 0;
 		LoadNextScene();
 	}
     public static void LoadCreditsScene()

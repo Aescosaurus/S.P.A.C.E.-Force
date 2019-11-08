@@ -76,6 +76,10 @@ public class HealthBar
 			var clip = explosion.GetComponent<AudioSource>();
 			clip.clip = explodeSound;
 			clip.Play();
+
+			var scr = GetComponent<FoxBossBase>();
+			if( scr != null ) scr.Explode();
+
 			if( tag != "Player" )
 			{
 				DestroyHealthBar();
