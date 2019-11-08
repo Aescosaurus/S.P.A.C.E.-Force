@@ -13,6 +13,12 @@ public class Kitten
 		Assert.IsNotNull( body );
 
 		healthBar = GetComponent<HealthBar>();
+
+		audSrc = GetComponent<AudioSource>();
+		Assert.IsNotNull( audSrc );
+		saveSound = Resources.Load<AudioClip>(
+			"Sounds/Collision" );
+		Assert.IsNotNull( saveSound );
 	}
 
 	void OnCollisionEnter2D( Collision2D coll )
@@ -20,6 +26,7 @@ public class Kitten
 		if( coll.gameObject.tag == "Player" )
 		{
 			player = coll.gameObject;
+			audSrc.PlayOneShot( saveSound );
 		}
 		else if( coll.gameObject.tag == "SpaceFox" )
 		{
@@ -56,4 +63,7 @@ public class Kitten
 	[SerializeField] float knockBackForce = 10.0f;
 
 	const float moveSpeed = 55.2f;
+
+	AudioSource audSrc;
+	AudioClip saveSound;
 }
