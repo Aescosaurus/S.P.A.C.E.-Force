@@ -148,7 +148,25 @@ public class FoxBoss3
 				}
 				break;
 			case State.BulletStorm:
+				if( bulletRefire.Update( Time.deltaTime ) )
+				{
+					bulletRefire.Reset();
 
+					var start = Random.Range( 0,100 ) < 50
+						? guns[Random.Range( 0,guns.Length )]
+						: arms[Random.Range( 0,arms.Length )];
+
+					FireBullet( start.position,
+						( player.transform.position -
+						start.transform.position )
+						.normalized * bulletSpeed );
+
+					if( ++curBullet >= nBullets )
+					{
+						curBullet = 0;
+						action = State.LaserFrenzy;
+					}
+				}
 				break;
 		}
 	}
@@ -225,5 +243,11 @@ public class FoxBoss3
 	[SerializeField] int nShotgunBursts = 10;
 	int curShotgunBurst = 0;
 
-	State action = State.ShotgunFrenzy;
+	[Header( "Bullet Storm" )]
+	[SerializeField] Timer bulletRefire = new Timer( 0.05f );
+	[SerializeField] int nBullets = 30;
+	[SerializeField] float bulletSpeed = 1.5f;
+	int curBullet = 0;
+
+	State action = State.LaserFrenzy;
 }
