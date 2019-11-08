@@ -27,6 +27,8 @@ public class FoxBoss2
 		Assert.IsNotNull( bulletPrefab );
 		body = GetComponent<Rigidbody2D>();
 		Assert.IsNotNull( body );
+		audSrc = GetComponent<AudioSource>();
+		Assert.IsNotNull( audSrc );
 
 		for( int i = 0; i < 3; ++i )
 		{
@@ -37,6 +39,12 @@ public class FoxBoss2
 		{
 			laserSpawns[i] = transform.Find( "Laser" +
 				( i + 1 ).ToString() );
+		}
+		for( int i = 0; i < 4; ++i )
+		{
+			shootSounds.Add( Resources.Load<AudioClip>(
+				"Sounds/Boss Shoot 0" + ( i + 1 ) ) );
+			Assert.IsNotNull( shootSounds[i] );
 		}
 	}
 
@@ -141,6 +149,9 @@ public class FoxBoss2
 		var scr = missile.GetComponent<FoxMissile>();
 		scr.SetVel( vel );
 		scr.SetTarget( target );
+
+		audSrc.PlayOneShot( shootSounds[Random
+			.Range( 0,shootSounds.Count )] );
 	}
 
 	void FireBullet( Vector2 loc,Vector2 vel )
@@ -149,6 +160,9 @@ public class FoxBoss2
 		bullet.transform.position = loc;
 		bullet.GetComponent<Rigidbody2D>()
 			.AddForce( vel,ForceMode2D.Impulse );
+
+		audSrc.PlayOneShot( shootSounds[Random
+			.Range( 0,shootSounds.Count )] );
 	}
 
 	void OnDestroy()
@@ -169,6 +183,7 @@ public class FoxBoss2
 	GameObject player;
 	GameObject bulletPrefab;
 	Rigidbody2D body;
+	AudioSource audSrc;
 
 	[Header( "Missile Shotgun" )]
 	[SerializeField] int nShotgunBullets = 5;
@@ -199,4 +214,5 @@ public class FoxBoss2
 	int curBurst = 0;
 
 	State action = State.MissileShotgun;
+	List<AudioClip> shootSounds = new List<AudioClip>();
 }

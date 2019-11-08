@@ -103,7 +103,7 @@ public class EmancipatorShoot
 			ForceMode2D.Impulse );
 
 		audSrc.PlayOneShot( shootSounds[Random.Range( 0,
-			shootSounds.Count )] );
+			shootSounds.Count )],0.7f );
 	}
 
 	void OnCollisionEnter2D( Collision2D coll )

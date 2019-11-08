@@ -40,10 +40,14 @@ public class EmancipatorBullet
 			coll.gameObject.GetComponent<HealthBar>()
 				.Hurt( 1 );
 		}
-		var explosion = Instantiate( explosionPrefab );
-		var clip = explosion.GetComponent<AudioSource>();
-		clip.clip = explodeSound;
-		clip.Play();
+		else
+		{
+			var explosion = Instantiate( explosionPrefab );
+			var clip = explosion.GetComponent<AudioSource>();
+			clip.clip = explodeSound;
+			clip.volume = 0.5f;
+			clip.Play();
+		}
 		Destroy( gameObject );
 	}
 

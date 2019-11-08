@@ -42,9 +42,9 @@ public class FoxBoss1
 				"Sounds/Boss Shoot 0" + ( i + 1 ) ) );
 			Assert.IsNotNull( shootSounds[i] );
 		}
-		explodeSound = Resources.Load<AudioClip>(
-			"Sounds/Boss Explode" );
-		Assert.IsNotNull( explodeSound );
+		// explodeSound = Resources.Load<AudioClip>(
+		// 	"Sounds/Boss Explode" );
+		// Assert.IsNotNull( explodeSound );
 
 		target = ( Vector2 )transform.position +
 			new Vector2( Random.Range( -3,3 ),
@@ -167,5 +167,5 @@ public class FoxBoss1
 	[SerializeField] float missileSpeed = 5.5f;
 
 	List<AudioClip> shootSounds = new List<AudioClip>();
-	AudioClip explodeSound;
+	// AudioClip explodeSound;
 }
