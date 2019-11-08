@@ -1240,7 +1240,7 @@ PrefabInstance:
     - target: {fileID: 3788810087161303503, guid: 37675051eecf4af43ae98c01f3e182da,
         type: 3}
       propertyPath: enemies.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3788810087161303503, guid: 37675051eecf4af43ae98c01f3e182da,
         type: 3}
@@ -1270,6 +1270,12 @@ PrefabInstance:
       propertyPath: waveSize
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 3788810087161303503, guid: 37675051eecf4af43ae98c01f3e182da,
+        type: 3}
+      propertyPath: enemies.Array.data[3]
+      value: 
+      objectReference: {fileID: 6496242622666570003, guid: f97aa87779b0eb94bb22d937d3e7ebe1,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37675051eecf4af43ae98c01f3e182da, type: 3}
 --- !u!1 &1971066315

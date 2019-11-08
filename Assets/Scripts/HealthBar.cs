@@ -89,6 +89,11 @@ public class HealthBar
 		}
 	}
 
+	public int GetHealth()
+	{
+		return( health );
+	}
+
     public void DestroyHealthBar()
     {
         Destroy(healthBar);
