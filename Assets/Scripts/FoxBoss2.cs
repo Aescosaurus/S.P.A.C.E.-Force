@@ -12,10 +12,7 @@ public class FoxBoss2
 		MissileShotgun,
 		Move,
 		Lasers,
-		MissileShotgunBounce,
-		Wait,
-		MissileBarrage,
-		Reposition
+		MissileBurst
 	}
 
 	void Start()
@@ -109,17 +106,29 @@ public class FoxBoss2
 					if( curLaserVolley >= laserSpawns.Length )
 					{
 						curLaserVolley = 0;
-						action = State.MissileShotgunBounce;
+						action = State.MissileBurst;
 					}
 				}
 				break;
-			case State.MissileShotgunBounce:
-				break;
-			case State.Wait:
-				break;
-			case State.MissileBarrage:
-				break;
-			case State.Reposition:
+			case State.MissileBurst:
+				if( burstReload.Update( Time.deltaTime ) )
+				{
+					burstReload.Reset();
+
+					for( int i = 0; i < burstSize; ++i )
+					{
+						FireMissile( shotgunSpawns[Random
+							.Range( 0,shotgunSpawns.Length )]
+							.position,Vector2.zero,
+							player.transform );
+					}
+
+					if( ++curBurst >= nBursts )
+					{
+						curBurst = 0;
+						action = State.MissileShotgun;
+					}
+				}
 				break;
 		}
 	}
@@ -182,5 +191,11 @@ public class FoxBoss2
 	int curLaser = 0;
 	Vector2 laserTarget = Vector2.zero;
 
-	State action = State.Lasers;
+	[Header( "Missile Burst" )]
+	[SerializeField] int nBursts = 5;
+	[SerializeField] Timer burstReload = new Timer( 1.0f );
+	[SerializeField] int burstSize = 4;
+	int curBurst = 0;
+
+	State action = State.MissileShotgun;
 }

@@ -20,8 +20,9 @@ public class FoxMissile
 
 	void Update()
 	{
-		if( lockOn.Update( Time.deltaTime ) )
+		if( lockOn.Update( Time.deltaTime ) && !targeted )
 		{
+			targeted = true;
 			body.gravityScale = 0.0f;
 			body.velocity = Vector2.zero;
 			if( target != null )
@@ -65,4 +66,5 @@ public class FoxMissile
 	[SerializeField] Timer lockOn = new Timer( 0.4f );
 	[SerializeField] float flySpeed = 50.0f;
 	[SerializeField] float deviationSpeed = 5.0f;
+	bool targeted = false;
 }

@@ -1256,12 +1256,16 @@ MonoBehaviour:
   moveDuration:
     maxTime: 3
   moveSpeed: 25
-  laserVolleySize: 5
+  laserVolleySize: 7
   laserRefire:
     maxTime: 0.12
   laserReload:
     maxTime: 1.5
   laserMoveSpeed: 1.2
+  nBursts: 5
+  burstReload:
+    maxTime: 1
+  burstSize: 4
 --- !u!114 &1634967886
 MonoBehaviour:
   m_ObjectHideFlags: 0
