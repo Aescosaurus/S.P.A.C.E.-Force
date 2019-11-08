@@ -32,7 +32,7 @@ public class StarSpawner
         GameObject star;
 		var spr = starSprites[Random.Range( 0,
 			starSprites.Length )];
-        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Main Menu"))
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Main Menu") || SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Credits"))
         {
             star = Instantiate(mainMenuStarPrefab, transform);
         }

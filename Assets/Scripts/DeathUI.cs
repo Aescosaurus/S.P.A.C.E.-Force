@@ -19,8 +19,8 @@ public class DeathUI : MonoBehaviour
 
     public void ExitToMainMenu()
     {
-		// SceneManager.LoadScene("Main Menu");
-		LevelHandler.Restart();
+        // SceneManager.LoadScene("Main Menu");
+        LevelHandler.ExitToMainMenu();
     }
 
     public void RestartLevel()

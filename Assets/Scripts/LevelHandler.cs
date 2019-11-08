@@ -63,11 +63,20 @@ public class LevelHandler
 	}
     public static void LoadCreditsScene()
     {
-
+        SceneManager.LoadScene("Credits");
+    }
+    public static void ExitToMainMenu()
+    {
+        curLevel = -1;
+        LoadNextScene();
     }
     public void PlayGame()
     {
         LoadNextScene();
+    }
+    public void ReturnToMain()
+    {
+        ExitToMainMenu();
     }
     public void ShowCredits()
     {
