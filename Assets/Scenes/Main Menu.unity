@@ -648,6 +648,8 @@ MonoBehaviour:
     kittiesToWin: 1
   - sceneName: Level 3
     kittiesToWin: 4
+  - sceneName: Level 3 Boss
+    kittiesToWin: 1
   - sceneName: Credits
     kittiesToWin: 1
 --- !u!4 &1579586669

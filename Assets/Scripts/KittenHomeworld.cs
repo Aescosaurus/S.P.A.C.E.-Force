@@ -20,11 +20,6 @@ public class KittenHomeworld
 	void Update()
 	{
 		transform.Rotate( 0.0f,0.0f,rotSpeed * Time.deltaTime );
-
-		if( Input.GetKeyDown( KeyCode.Alpha0 ) )
-		{
-			LevelHandler.SaveKitty();
-		}
 	}
 
 	void OnTriggerEnter2D( Collider2D coll )

@@ -43,6 +43,11 @@ public class EmancipatorShoot
 
 	void Update()
 	{
+		if( Input.GetKeyDown( KeyCode.Alpha0 ) )
+		{
+			LevelHandler.SaveKitty();
+		}
+
 		if( refire.Update( Time.deltaTime ) &&
 			Input.GetAxis( "Attack" ) > 0.0f )
 		{
