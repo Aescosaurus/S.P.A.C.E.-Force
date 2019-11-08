@@ -1254,8 +1254,8 @@ MonoBehaviour:
   shotgunRefire:
     maxTime: 2
   moveDuration:
-    maxTime: 3
-  moveSpeed: 25
+    maxTime: 5
+  moveSpeed: 43
   laserVolleySize: 7
   laserRefire:
     maxTime: 0.12
@@ -1265,7 +1265,7 @@ MonoBehaviour:
   nBursts: 5
   burstReload:
     maxTime: 1
-  burstSize: 4
+  burstSize: 8
 --- !u!114 &1634967886
 MonoBehaviour:
   m_ObjectHideFlags: 0

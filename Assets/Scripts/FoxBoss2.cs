@@ -92,7 +92,8 @@ public class FoxBoss2
 						laserRefire.Reset();
 
 						FireBullet( laserSpawns[curLaserVolley].position,
-							( laserTarget - ( Vector2 )transform.position )
+							( laserTarget - ( Vector2 )laserSpawns[
+							curLaserVolley].position )
 							.normalized * laserMoveSpeed );
 
 						if( ++curLaser >= laserVolleySize )
