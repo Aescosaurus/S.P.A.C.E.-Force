@@ -32,8 +32,14 @@ public class LevelHandler
 
 		if( kittiesSaved >= kittiesToWin )
 		{
-			// LoadNextScene();
-			Instantiate( sceneLoaderPrefab );
+			if( kittiesSaved <= 1 )
+			{
+				LoadNextScene();
+			}
+			else
+			{
+				Instantiate( sceneLoaderPrefab );
+			}
 		}
 	}
 	public static void DefeatBoss()
