@@ -1256,9 +1256,9 @@ MonoBehaviour:
   moveDuration:
     maxTime: 3
   moveSpeed: 25
-  laserVolleySize: 3
+  laserVolleySize: 5
   laserRefire:
-    maxTime: 0.15
+    maxTime: 0.12
   laserReload:
     maxTime: 1.5
   laserMoveSpeed: 1.2
