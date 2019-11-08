@@ -21,6 +21,9 @@ public class LevelHandler
 		{
 			sceneList.Add( scene );
 		}
+
+		sceneLoaderPrefab = Resources.Load<GameObject>(
+			"Prefabs/NextSceneLoader" );
 	}
 
 	public static void SaveKitty()
@@ -29,8 +32,8 @@ public class LevelHandler
 
 		if( kittiesSaved >= kittiesToWin )
 		{
-			// TODO: Play boss music.
-			LoadNextScene();
+			// LoadNextScene();
+			Instantiate( sceneLoaderPrefab );
 		}
 	}
 	public static void DefeatBoss()
@@ -38,7 +41,7 @@ public class LevelHandler
 		// TODO: Open upgrade menu.
 		// When done upgrading go to next level.
 	}
-	static void LoadNextScene()
+	public static void LoadNextScene()
 	{
 		++curLevel;
 
@@ -74,6 +77,8 @@ public class LevelHandler
     {
         Application.Quit();
     }
+
+	static GameObject sceneLoaderPrefab;
 
     [SerializeField] SceneInfo[] sceneOrder = {};
 
