@@ -57,12 +57,12 @@ public class FoxBoss2
 				{
 					shotgunRefire.Reset();
 
-					Vector2 diff = player.transform.position -
-						transform.position;
-					Vector2 start = Deviate( diff,
-						-( nShotgunBullets / 2 ) * shotgunSpread );
 					Vector2 spawn = shotgunSpawns[Random.Range(
 						0,shotgunSpawns.Length )].position;
+					Vector2 diff = ( Vector2 )player
+						.transform.position - spawn;
+					Vector2 start = Deviate( diff,
+						-( nShotgunBullets / 2 ) * shotgunSpread );
 					for( int i = 0; i < nShotgunBullets; ++i )
 					{
 						FireMissile( spawn,start,null );

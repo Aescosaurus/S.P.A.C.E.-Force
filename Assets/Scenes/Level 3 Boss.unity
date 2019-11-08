@@ -1488,6 +1488,10 @@ MonoBehaviour:
   laserMoveSpeed: 1.5
   laserVolleySize: 8
   nLaserVolleys: 5
+  missileBurstReload:
+    maxTime: 0.7
+  burstSize: 3
+  nBursts: 10
 --- !u!58 &2094148658
 CircleCollider2D:
   m_ObjectHideFlags: 0

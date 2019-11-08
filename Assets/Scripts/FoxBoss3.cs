@@ -28,6 +28,8 @@ public class FoxBoss3
 		Assert.IsNotNull( bulletPrefab );
 		audSrc = GetComponent<AudioSource>();
 		Assert.IsNotNull( audSrc );
+		body = GetComponent<Rigidbody2D>();
+		Assert.IsNotNull( body );
 
 		for( int i = 0; i < guns.Length; ++i )
 		{
@@ -86,12 +88,67 @@ public class FoxBoss3
 				}
 				break;
 			case State.MissileBurst:
+				if( missileBurstReload.Update( Time.deltaTime ) )
+				{
+					missileBurstReload.Reset();
+					randGun = guns[Random.Range( 0,guns.Length )];
+
+					for( int i = 0; i < burstSize; ++i )
+					{
+						FireMissile( randGun.position,
+							Vector2.zero,
+							player.transform );
+					}
+
+					if( ++curBurst >= nBursts )
+					{
+						curBurst = 0;
+						moveVel = new Vector2( Random.Range( -1.0f,1.0f ),
+							Random.Range( -1.0f,1.0f ) );
+						action = State.Move;
+					}
+				}
 				break;
 			case State.Move:
+				if( moveDuration.Update( Time.deltaTime ) )
+				{
+					moveDuration.Reset();
+					action = State.ShotgunFrenzy;
+				}
+				else
+				{
+					body.AddForce( moveVel * moveSpeed *
+						Time.deltaTime );
+				}
 				break;
 			case State.ShotgunFrenzy:
+				if( shotgunRefire.Update( Time.deltaTime ) )
+				{
+					shotgunRefire.Reset();
+
+					Vector2 spawn = guns[Random.Range(
+						0,guns.Length )].position;
+					Vector2 diff = ( Vector2 )player
+						.transform.position - spawn;
+					Vector2 start = Deviate( diff,
+						-( nShotgunBullets / 2 ) * shotgunSpread );
+					for( int i = 0; i < nShotgunBullets; ++i )
+					{
+						// FireMissile( spawn,start,null );
+						FireBullet( spawn,start *
+							shotgunBulletSpeed );
+						start = Deviate( start,shotgunSpread );
+					}
+
+					if( ++curShotgunBurst >= nShotgunBursts )
+					{
+						curShotgunBurst = 0;
+						action = State.BulletStorm;
+					}
+				}
 				break;
 			case State.BulletStorm:
+
 				break;
 		}
 	}
@@ -119,16 +176,25 @@ public class FoxBoss3
 			.Range( 0,shootSounds.Count )] );
 	}
 
+	Vector2 Deviate( Vector2 start,float dev )
+	{
+		dev *= Mathf.Deg2Rad;
+		float angle = Mathf.Atan2( start.y,start.x ) + dev;
+		Vector2 temp = new Vector2( Mathf.Cos( angle ),
+			Mathf.Sin( angle ) );
+		return ( temp );
+	}
+
 	GameObject player;
 	GameObject missilePrefab;
 	GameObject bulletPrefab;
 	AudioSource audSrc;
+	Rigidbody2D body;
 	Transform[] guns = new Transform[4];
 	Transform[] arms = new Transform[4];
 	List<AudioClip> shootSounds = new List<AudioClip>();
 
-	State action = State.LaserFrenzy;
-
+	[Header( "Laser Frenzy" )]
 	[SerializeField] Timer laserReload = new Timer( 1.0f );
 	[SerializeField] Timer laserRefire = new Timer( 0.1f );
 	[SerializeField] float laserMoveSpeed = 1.2f;
@@ -138,4 +204,26 @@ public class FoxBoss3
 	Transform randLaserArm = null;
 	int curLaserVolley = 0;
 	int curLaser = 0;
+
+	[Header( "Missile Burst" )]
+	[SerializeField] Timer missileBurstReload = new Timer( 1.0f );
+	[SerializeField] int burstSize = 4;
+	[SerializeField] int nBursts = 10;
+	Transform randGun;
+	int curBurst = 0;
+
+	[Header( "Move" )]
+	[SerializeField] Timer moveDuration = new Timer( 3.0f );
+	[SerializeField] float moveSpeed = 300.0f;
+	Vector2 moveVel = Vector2.zero;
+
+	[Header( "Shotgun Frenzy" )]
+	[SerializeField] Timer shotgunRefire = new Timer( 1.5f );
+	[SerializeField] int nShotgunBullets = 5;
+	[SerializeField] float shotgunSpread = 30.0f;
+	[SerializeField] float shotgunBulletSpeed = 0.9f;
+	[SerializeField] int nShotgunBursts = 10;
+	int curShotgunBurst = 0;
+
+	State action = State.ShotgunFrenzy;
 }
