@@ -1032,22 +1032,22 @@ PrefabInstance:
     - target: {fileID: 7125002270044513267, guid: fdb94813193c11645bf2b29e317b1991,
         type: 3}
       propertyPath: minBoundsSpawnRange
-      value: 28
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 7125002270044513267, guid: fdb94813193c11645bf2b29e317b1991,
         type: 3}
       propertyPath: maxBoundsSpawnRange
-      value: 33
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 7125002270044513267, guid: fdb94813193c11645bf2b29e317b1991,
         type: 3}
       propertyPath: nBorderAsteroids
-      value: 1300
+      value: 2200
       objectReference: {fileID: 0}
     - target: {fileID: 7125002270044513267, guid: fdb94813193c11645bf2b29e317b1991,
         type: 3}
       propertyPath: nRandomAsteroids
-      value: 25
+      value: 28
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fdb94813193c11645bf2b29e317b1991, type: 3}
@@ -1260,6 +1260,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1042879270079250614, guid: c6dca51e5aaf04f15be8195a53777c91,
         type: 3}
+    - target: {fileID: 3788810087161303503, guid: 37675051eecf4af43ae98c01f3e182da,
+        type: 3}
+      propertyPath: maxSpawnRange
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 3788810087161303503, guid: 37675051eecf4af43ae98c01f3e182da,
+        type: 3}
+      propertyPath: waveSize
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37675051eecf4af43ae98c01f3e182da, type: 3}
 --- !u!1 &1971066315

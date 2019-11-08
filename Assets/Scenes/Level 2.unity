@@ -1243,6 +1243,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7292528979854803253, guid: 545c348e4366d774a8145af3bf6a74c5,
         type: 3}
+    - target: {fileID: 3788810087161303503, guid: 37675051eecf4af43ae98c01f3e182da,
+        type: 3}
+      propertyPath: waveSize
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37675051eecf4af43ae98c01f3e182da, type: 3}
 --- !u!1 &1971066315

@@ -23,7 +23,8 @@ public class Kitten
 
 	void OnCollisionEnter2D( Collision2D coll )
 	{
-		if( coll.gameObject.tag == "Player" )
+		if( player == null &&
+			coll.gameObject.tag == "Player" )
 		{
 			player = coll.gameObject;
 			audSrc.PlayOneShot( saveSound );
