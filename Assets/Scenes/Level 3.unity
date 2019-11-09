@@ -1268,7 +1268,7 @@ PrefabInstance:
     - target: {fileID: 3788810087161303503, guid: 37675051eecf4af43ae98c01f3e182da,
         type: 3}
       propertyPath: waveSize
-      value: 7
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3788810087161303503, guid: 37675051eecf4af43ae98c01f3e182da,
         type: 3}
@@ -1276,6 +1276,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6496242622666570003, guid: f97aa87779b0eb94bb22d937d3e7ebe1,
         type: 3}
+    - target: {fileID: 3788810087161303503, guid: 37675051eecf4af43ae98c01f3e182da,
+        type: 3}
+      propertyPath: waveIncrease
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37675051eecf4af43ae98c01f3e182da, type: 3}
 --- !u!1 &1971066315
