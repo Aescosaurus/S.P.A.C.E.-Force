@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Assertions;
 
 public class LevelHandler
 	:
@@ -24,6 +25,13 @@ public class LevelHandler
 
 		sceneLoaderPrefab = Resources.Load<GameObject>(
 			"Prefabs/NextSceneLoader" );
+		Assert.IsNotNull( sceneLoaderPrefab );
+		menuClickSound = Resources.Load<AudioClip>(
+			"Sounds/Menu Click" );
+		Assert.IsNotNull( menuClickSound );
+		explosionPrefab = Resources.Load<GameObject>(
+			"Prefabs/Explosion" );
+		Assert.IsNotNull( explosionPrefab );
 	}
 
 	public static void SaveKitty()
@@ -78,22 +86,35 @@ public class LevelHandler
     }
     public void PlayGame()
     {
+		PlayClickSound();
         LoadNextScene();
     }
     public void ReturnToMain()
-    {
-        ExitToMainMenu();
+	{
+		PlayClickSound();
+		ExitToMainMenu();
     }
     public void ShowCredits()
-    {
-        LoadCreditsScene();
+	{
+		PlayClickSound();
+		LoadCreditsScene();
     }
     public void QuitGame()
-    {
-        Application.Quit();
+	{
+		PlayClickSound();
+		Application.Quit();
     }
+	static void PlayClickSound()
+	{
+		var expl = Instantiate( explosionPrefab );
+		var audSrc = expl.GetComponent<AudioSource>();
+		audSrc.clip = menuClickSound;
+		audSrc.Play();
+	}
 
 	static GameObject sceneLoaderPrefab;
+	static AudioClip menuClickSound;
+	static GameObject explosionPrefab;
 
     [SerializeField] SceneInfo[] sceneOrder = {};
 
