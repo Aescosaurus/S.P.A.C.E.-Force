@@ -29,8 +29,8 @@ public class WaveSpawner
 			waveCheck.Reset();
 
 			if( GameObject.FindGameObjectsWithTag(
-				"SpaceFox" ).Length == 0 ||
-				waveSpawn.IsDone() )
+				"SpaceFox" ).Length == 0/* ||
+				waveSpawn.IsDone()*/ )
 			{
 				waveSpawn.Reset();
 
