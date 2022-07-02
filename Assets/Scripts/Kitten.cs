@@ -19,6 +19,10 @@ public class Kitten
 		saveSound = Resources.Load<AudioClip>(
 			"Sounds/Collision" );
 		Assert.IsNotNull( saveSound );
+
+		catFinder = FindObjectOfType<CatFinder>();
+		catFinder.ToggleVis( true );
+		catFinder.SetTargetCat( gameObject );
 	}
 
 	void OnCollisionEnter2D( Collision2D coll )
@@ -28,6 +32,7 @@ public class Kitten
 		{
 			player = coll.gameObject;
 			audSrc.PlayOneShot( saveSound,0.8f );
+			catFinder.SetTargetCat( FindObjectOfType<KittenHomeworld>().gameObject );
 		}
 		else if( coll.gameObject.tag == "SpaceFox" )
 		{
@@ -55,7 +60,8 @@ public class Kitten
     {
         // healthBar = GetComponent<HealthBar>();
         healthBar.DestroyHealthBar();
-    }
+		if( catFinder.gameObject != null ) catFinder.ToggleVis( false );
+	}
 
     GameObject player = null;
 	Rigidbody2D body;
@@ -67,4 +73,6 @@ public class Kitten
 
 	AudioSource audSrc;
 	AudioClip saveSound;
+
+	CatFinder catFinder;
 }
