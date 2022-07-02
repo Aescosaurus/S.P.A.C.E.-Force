@@ -6,11 +6,11 @@ public class EnemySpawner : MonoBehaviour
 {
     [Tooltip("The Player")]
     [SerializeField]
-    GameObject player;
+    GameObject player = null;
 
     [Tooltip("The Space Fox Enemy to Spawn")]
     [SerializeField]
-    GameObject spaceFox;
+    GameObject spaceFox = null;
 
     [Tooltip("How long for initial spawn delay")]
     [SerializeField]
