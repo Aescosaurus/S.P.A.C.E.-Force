@@ -28,7 +28,7 @@ public class CatFinder
 
 	public void ToggleVis( bool visible )
 	{
-		sprRend.enabled = visible;
+		if( sprRend != null ) sprRend.enabled = visible;
 	}
 
 	GameObject targetCat = null;

@@ -60,7 +60,7 @@ public class Kitten
     {
         // healthBar = GetComponent<HealthBar>();
         healthBar.DestroyHealthBar();
-		if( catFinder.gameObject != null ) catFinder.ToggleVis( false );
+		catFinder?.ToggleVis( false );
 	}
 
     GameObject player = null;

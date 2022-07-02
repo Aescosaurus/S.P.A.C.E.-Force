@@ -181,6 +181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f5e0edac6205aa40bf43cf2f352ecdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  knockBackForce: 10
 --- !u!114 &2077294858351829945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,7 +194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e8aeb1cba6b8964cae84ab12bc4717a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 2
+  health: 7
   hurtSound: {fileID: 8300000, guid: 9ff800e182b0b394da89cd0ef5158cb8, type: 3}
   explodeSound: {fileID: 8300000, guid: 6e146e418a184af408df3f31d0d99ed0, type: 3}
 --- !u!1 &8540323864508527546
